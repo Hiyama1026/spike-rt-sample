@@ -20,5 +20,5 @@
 APIの使い方の確認等に使用することを想定したサンプルです。どのサンプルでどのAPIを使用しているかは、[API-sample/index.md](/API-sample/index.md)を参照してください。
 
 ### ETロボコン用環境(RasPike)について
-- 詳しくは[こちら](https://github.com/ETrobocon/RasPike)
-- 走行体は、[組み立て方](https://drive.google.com/file/d/17FyQBsuuXrV4BK-96fgQJy-Ou4NvqLi7/view?usp=sharing)を元に組み立てました。
+- 詳しくは[こちら](https://github.com/ETrobocon/RasPike)。
+- 走行体は、[組立図](https://drive.google.com/file/d/17FyQBsuuXrV4BK-96fgQJy-Ou4NvqLi7/view?usp=sharing)を元に組み立てました。
