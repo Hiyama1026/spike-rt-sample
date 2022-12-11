@@ -39,7 +39,7 @@ static void motor_drive_control(int steering_amount, int R_motor_pt, int L_motor
 }
 
 /*
- * Main Task
+ * Main Task(P制御でライントレース)
  */
 #include <stdio.h>
 void

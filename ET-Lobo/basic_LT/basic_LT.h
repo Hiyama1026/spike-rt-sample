@@ -16,12 +16,15 @@
 
 #define MAIN_PRIORITY	5		/* メインタスクの優先度 */
 
+/*積分の処理周期*/
+#define DELTA_T (0.001)
+
 /*カラーセンサーの輝度設定*/
-#define WHITE_BRIGHTNESS  (73)
+#define WHITE_BRIGHTNESS  (80)
 #define BLACK_BRIGHTNESS  (4)
 
 /*ステアリング操舵量の係数*/
-#define STEERING_COF      (0.5)
+#define STEERING_COF      (0.7)
 
 /*基本走行スピード*/
 #define BACE_SPEED        (50)
@@ -29,7 +32,6 @@
 /*ライントレースエッジ切り替え*/
 #define LEFT_EDGE         (-1)
 #define RIGHT_EDGE        (1)
-
 
 /*
  *  ターゲットに依存する可能性のある定数の定義
