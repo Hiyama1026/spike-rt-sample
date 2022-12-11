@@ -17,14 +17,14 @@
 #define MAIN_PRIORITY	5		/* メインタスクの優先度 */
 
 /*カラーセンサーの輝度設定*/
-#define WHITE_BRIGHTNESS  (90)
-#define BLACK_BRIGHTNESS  (10)
+#define WHITE_BRIGHTNESS  (73)
+#define BLACK_BRIGHTNESS  (4)
 
 /*ステアリング操舵量の係数*/
-#define STEERING_COF      (3)
+#define STEERING_COF      (0.5)
 
 /*基本走行スピード*/
-#define BACE_SPEED        (240)
+#define BACE_SPEED        (50)
 
 /*ライントレースエッジ切り替え*/
 #define LEFT_EDGE         (-1)

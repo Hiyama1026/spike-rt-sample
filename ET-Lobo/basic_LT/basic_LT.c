@@ -34,8 +34,8 @@ static void motor_drive_control(int steering_amount, int R_motor_pt, int L_motor
   right_motor_powor = (int)(BACE_SPEED - (steering_amount * LEFT_EDGE));
 
   /*左右モーター駆動パワーの設定*/
-  pup_motor_set_speed(L_motor_pt, left_motor_powor);
-  pup_motor_set_speed(R_motor_pt, right_motor_powor);
+  pup_motor_set_duty_limit(L_motor_pt, left_motor_powor);
+  pup_motor_set_duty_limit(R_motor_pt, right_motor_powor);
 }
 
 /*
@@ -75,6 +75,8 @@ main_task(intptr_t exinf)
     // Set up failed -> Wait 1s and ry one more
     dly_tsk(1000000);
   }
+  pup_motor_set_duty_limit(r_motor, BACE_SPEED);
+
   /*左モーターをセットアップ*/
   for(int i = 0; i < 10; i++)
   {
@@ -86,11 +88,13 @@ main_task(intptr_t exinf)
     // Set up failed -> Wait 1s and ry one more
     dly_tsk(1000000);
   }
+  pup_motor_set_duty_limit(l_motor, BACE_SPEED);
   // TEST_ASSERT_NOT_EQUAL(err, PBIO_ERROR_NO_DEV);
   // TEST_ASSERT_EQUAL(err, PBIO_SUCCESS);
 
   int steering_amount;
-
+  pup_motor_set_speed(r_motor, 1000);
+  pup_motor_set_speed(l_motor, 1000);
   while (1)
   {   
     /*ステアリングの操舵量を計算*/
