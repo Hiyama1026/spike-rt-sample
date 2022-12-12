@@ -17,16 +17,16 @@
 #define STEERING_COF      (3)
 
 /*基本走行スピード*/
-#define BACE_SPEED        (50)
+#define BACE_SPEED        (70)
 
 /*ライントレースエッジ切り替え*/
 #define LEFT_EDGE         (-1)
 #define RIGHT_EDGE        (1)
 
 /*PIDパラメータ*/
-#define KP (0.95)
-#define KI (0.01)
-#define KD (0.19)
+#define KP (0.6)
+#define KI (0)
+#define KD (2)
 
 /*
  *  ターゲットに依存する可能性のある定数の定義
