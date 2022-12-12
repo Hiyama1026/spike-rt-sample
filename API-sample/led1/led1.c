@@ -7,8 +7,8 @@
 #include "led1.h"
 
 #include "cbricks/hub/display.h"
-#include "pbio/light_matrix.h"#include <cbricks/hub/light.h>
-
+#include "pbio/light_matrix.h"
+#include <cbricks/hub/light.h>
 #include <pbsys/light.h>
 #include <pbio/light.h>
 #include <pbio/color.h>
