@@ -3,36 +3,8 @@
 #include "pid_controller_LT.h"
 #include "cbricks/pup/motor.h"
 #include "cbricks/pup/colorsensor.h"
-#include "cbricks/pup/forcesensor.h"
 
 //#include <pbsys/user_program.h>
-
-static int steering_amount_calculation(int colorsensor_pt){
-  int target_brightness, reflection;
-  float diff_brightness, steering_amount;
-  static float diff[2];
-  static int integral;
-  static float p, i, d;
-
-
-  /*目標輝度*/
-  target_brightness = (WHITE_BRIGHTNESS-BLACK_BRIGHTNESS)/2;
-  /*カラーセンサー値の取得*/
-  reflection =  pup_color_sensor_reflection(colorsensor_pt);
-  //syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", reflection);
-  diff[0] = diff[1];
-  /*目標輝度とカラーセンサー値の差分を計算*/
-  diff[1] = (float)(target_brightness - reflection);
-  /*ステアリング操舵量を計算*/
-  integral += (diff[1] + diff[0]) / 2.0 * DELTA_T;
-  p = KP * diff[1];
-  i = KI * integral;
-  d = KD * (diff[1] - diff[0]) / DELTA_T;
-  
-  steering_amount = p + i + d;
-  
-  return (int)steering_amount;
-}
 
 static void motor_drive_control(int steering_amount, int R_motor_pt, int L_motor_pt){
   
@@ -99,12 +71,10 @@ main_task(intptr_t exinf)
   pup_motor_set_duty_limit(l_motor, BACE_SPEED);
   // TEST_ASSERT_NOT_EQUAL(err, PBIO_ERROR_NO_DEV);
   // TEST_ASSERT_EQUAL(err, PBIO_SUCCESS);
- 
-  int target_brightness, reflection;
-  float diff_brightness, steering_amount;
+
   static float diff[2];
-  static int integral;
-  static float p, i, d;
+  static int target_brightness, reflection, integral;
+  static float p, i, d, diff_brightness, steering_amount;
   pup_motor_set_speed(r_motor, 1000);
   pup_motor_set_speed(l_motor, 1000);
   while (1)

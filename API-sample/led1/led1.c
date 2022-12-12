@@ -9,13 +9,14 @@
 #include "cbricks/hub/display.h"
 #include "pbio/light_matrix.h"
 #include <cbricks/hub/light.h>
+
 #include <pbsys/light.h>
 #include <pbio/light.h>
 #include <pbio/color.h>
 
 extern const uint8_t pb_font_5x5[95][5];
 
-const uint8_t ex[5][25] = {
+static uint8_t ex[1][25] = {
   {
     0b0000000, 0b0000000, 0b1100100, 0b0000000, 0b0000000,
     0b0000000, 0b1100100, 0b0000000, 0b1100100, 0b0000000,
@@ -96,7 +97,7 @@ main_task(intptr_t exinf)
   {
     hub_display_off();
     dly_tsk(500000);
-    hub_display_text("Spike-rt", 1000, 500);
+    hub_display_text("SPIKE-RT", 1000, 500);
     hub_display_image(ex);
     dly_tsk(1000000);
     pixel_on();

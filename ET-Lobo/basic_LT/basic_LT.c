@@ -3,7 +3,6 @@
 #include "basic_LT.h"
 #include "cbricks/pup/motor.h"
 #include "cbricks/pup/colorsensor.h"
-#include "cbricks/pup/forcesensor.h"
 
 //#include <pbsys/user_program.h>
 
