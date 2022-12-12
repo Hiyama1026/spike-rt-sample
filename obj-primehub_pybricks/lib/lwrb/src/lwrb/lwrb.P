@@ -1,0 +1,25 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/lwrb/src/lwrb/lwrb.o: \
+ ../../lib/lwrb/src/lwrb/lwrb.c /usr/include/newlib/assert.h \
+ /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h \
+ /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h \
+ /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h \
+ ../..//lib/lwrb/src/include/lwrb/lwrb.h /usr/include/newlib/string.h \
+ /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h \
+ /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h \
+ /usr/include/newlib/machine/_default_types.h \
+ /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h \
+ /usr/include/newlib/sys/string.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h
+ ../../lib/lwrb/src/lwrb/lwrb.c /usr/include/newlib/assert.h :
+ /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h :
+ /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h :
+ /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h :
+ ../..//lib/lwrb/src/include/lwrb/lwrb.h /usr/include/newlib/string.h :
+ /usr/include/newlib/sys/reent.h /usr/include/newlib/_ansi.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h :
+ /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h :
+ /usr/include/newlib/machine/_default_types.h :
+ /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h :
+ /usr/include/newlib/sys/string.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h :

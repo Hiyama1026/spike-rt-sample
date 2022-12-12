@@ -1,0 +1,7 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/pbio/drv/uart/uart_stm32l4_ll_dma.o: \
+ ../../lib/pbio/drv/uart/uart_stm32l4_ll_dma.c \
+ ../..//lib/pbio/include/pbdrv/config.h \
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h
+ ../../lib/pbio/drv/uart/uart_stm32l4_ll_dma.c :
+ ../..//lib/pbio/include/pbdrv/config.h :
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h :

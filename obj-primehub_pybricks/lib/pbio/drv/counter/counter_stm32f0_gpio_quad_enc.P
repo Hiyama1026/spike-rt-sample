@@ -1,0 +1,7 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/pbio/drv/counter/counter_stm32f0_gpio_quad_enc.o: \
+ ../../lib/pbio/drv/counter/counter_stm32f0_gpio_quad_enc.c \
+ ../..//lib/pbio/include/pbdrv/config.h \
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h
+ ../../lib/pbio/drv/counter/counter_stm32f0_gpio_quad_enc.c :
+ ../..//lib/pbio/include/pbdrv/config.h :
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h :

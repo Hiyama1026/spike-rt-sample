@@ -1,0 +1,6 @@
+Q(name)
+Q(reset)
+Q(reset_reason)
+Q(set_stop_button)
+Q(shutdown)
+Q(System)

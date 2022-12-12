@@ -77,7 +77,7 @@ OBJEXT =
 #  カーネルライブラリ（libkernel.a）のディレクトリ名
 #  （カーネルライブラリもmake対象にする時は，空に定義する）
 #
-KERNEL_LIB = ../../../obj-primehub_kernel
+KERNEL_LIB = ../../obj-primehub_kernel
 
 #
 #  カーネルを関数単位でコンパイルするかどうかの定義

@@ -1,0 +1,55 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/lsm6ds3tr_c_STdC/driver/lsm6ds3tr_c_reg.o: \
+ ../../lib/lsm6ds3tr_c_STdC/driver/lsm6ds3tr_c_reg.c \
+ /usr/include/newlib/math.h /usr/include/newlib/sys/reent.h \
+ /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h \
+ /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h \
+ /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h \
+ /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h \
+ /usr/include/newlib/machine/_default_types.h \
+ /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h \
+ /usr/include/newlib/_ansi.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
+ ../..//lib/contiki-core/contiki.h \
+ ../..//lib/contiki-core/contiki-version.h \
+ ../..//lib/pbio/platform/prime_hub_asp3/contiki-conf.h \
+ ../..//lib/contiki-core/sys/process.h ../..//lib/contiki-core/sys/pt.h \
+ ../..//lib/contiki-core/sys/lc.h ../..//lib/contiki-core/sys/lc-switch.h \
+ ../..//lib/contiki-core/sys/cc.h ../..//lib/contiki-core/sys/cc-gcc.h \
+ ../..//lib/contiki-core/sys/autostart.h \
+ ../..//lib/contiki-core/sys/process.h \
+ ../..//lib/contiki-core/sys/timer.h ../..//lib/contiki-core/sys/clock.h \
+ ../..//lib/contiki-core/sys/ctimer.h \
+ ../..//lib/contiki-core/sys/etimer.h ../..//lib/contiki-core/sys/timer.h \
+ ../..//lib/contiki-core/sys/etimer.h ../..//lib/contiki-core/sys/pt.h \
+ ../..//lib/contiki-core/sys/procinit.h \
+ ../..//lib/contiki-core/sys/clock.h \
+ ../../lib/lsm6ds3tr_c_STdC/driver/lsm6ds3tr_c_reg.h
+ ../../lib/lsm6ds3tr_c_STdC/driver/lsm6ds3tr_c_reg.c :
+ /usr/include/newlib/math.h /usr/include/newlib/sys/reent.h :
+ /usr/include/newlib/_ansi.h /usr/include/newlib/newlib.h :
+ /usr/include/newlib/_newlib_version.h /usr/include/newlib/sys/config.h :
+ /usr/include/newlib/machine/ieeefp.h /usr/include/newlib/sys/features.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h :
+ /usr/include/newlib/sys/_types.h /usr/include/newlib/machine/_types.h :
+ /usr/include/newlib/machine/_default_types.h :
+ /usr/include/newlib/sys/lock.h /usr/include/newlib/sys/cdefs.h :
+ /usr/include/newlib/_ansi.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h :
+ ../..//lib/contiki-core/contiki.h :
+ ../..//lib/contiki-core/contiki-version.h :
+ ../..//lib/pbio/platform/prime_hub_asp3/contiki-conf.h :
+ ../..//lib/contiki-core/sys/process.h ../..//lib/contiki-core/sys/pt.h :
+ ../..//lib/contiki-core/sys/lc.h ../..//lib/contiki-core/sys/lc-switch.h :
+ ../..//lib/contiki-core/sys/cc.h ../..//lib/contiki-core/sys/cc-gcc.h :
+ ../..//lib/contiki-core/sys/autostart.h :
+ ../..//lib/contiki-core/sys/process.h :
+ ../..//lib/contiki-core/sys/timer.h ../..//lib/contiki-core/sys/clock.h :
+ ../..//lib/contiki-core/sys/ctimer.h :
+ ../..//lib/contiki-core/sys/etimer.h ../..//lib/contiki-core/sys/timer.h :
+ ../..//lib/contiki-core/sys/etimer.h ../..//lib/contiki-core/sys/pt.h :
+ ../..//lib/contiki-core/sys/procinit.h :
+ ../..//lib/contiki-core/sys/clock.h :
+ ../../lib/lsm6ds3tr_c_STdC/driver/lsm6ds3tr_c_reg.h :

@@ -1,0 +1,7 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/pbio/drv/bluetooth/bluetooth_stm32_cc2640.o: \
+ ../../lib/pbio/drv/bluetooth/bluetooth_stm32_cc2640.c \
+ ../..//lib/pbio/include/pbdrv/config.h \
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h
+ ../../lib/pbio/drv/bluetooth/bluetooth_stm32_cc2640.c :
+ ../..//lib/pbio/include/pbdrv/config.h :
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h :

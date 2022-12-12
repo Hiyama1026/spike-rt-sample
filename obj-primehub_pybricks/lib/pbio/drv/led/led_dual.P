@@ -1,0 +1,29 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/pbio/drv/led/led_dual.o: \
+ ../../lib/pbio/drv/led/led_dual.c ../..//lib/pbio/include/pbdrv/config.h \
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
+ ../..//lib/pbio/include/pbdrv/led.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h \
+ ../..//lib/pbio/include/pbio/color.h \
+ ../..//lib/pbio/include/pbio/error.h ../..//lib/pbio/include/pbdrv/pwm.h \
+ ../..//lib/pbio/include/pbio/math.h \
+ ../..//lib/libfixmath/libfixmath/fixmath.h \
+ ../..//lib/libfixmath/libfixmath/uint32.h \
+ ../..//lib/libfixmath/libfixmath/int64.h \
+ ../..//lib/libfixmath/libfixmath/fract32.h \
+ ../..//lib/libfixmath/libfixmath/fix16.h \
+ ../../lib/pbio/drv/led/led_dual.h ../../lib/pbio/drv/led/led.h
+ ../../lib/pbio/drv/led/led_dual.c ../..//lib/pbio/include/pbdrv/config.h :
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h :
+ ../..//lib/pbio/include/pbdrv/led.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h :
+ ../..//lib/pbio/include/pbio/color.h :
+ ../..//lib/pbio/include/pbio/error.h ../..//lib/pbio/include/pbdrv/pwm.h :
+ ../..//lib/pbio/include/pbio/math.h :
+ ../..//lib/libfixmath/libfixmath/fixmath.h :
+ ../..//lib/libfixmath/libfixmath/uint32.h :
+ ../..//lib/libfixmath/libfixmath/int64.h :
+ ../..//lib/libfixmath/libfixmath/fract32.h :
+ ../..//lib/libfixmath/libfixmath/fix16.h :
+ ../../lib/pbio/drv/led/led_dual.h ../../lib/pbio/drv/led/led.h :

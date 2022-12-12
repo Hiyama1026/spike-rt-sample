@@ -1,0 +1,41 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/pbio/platform/motors/settings.o: \
+ ../../lib/pbio/platform/motors/settings.c \
+ ../..//lib/pbio/include/pbio/control.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
+ ../..//lib/libfixmath/libfixmath/fixmath.h \
+ ../..//lib/libfixmath/libfixmath/uint32.h \
+ ../..//lib/libfixmath/libfixmath/int64.h \
+ ../..//lib/libfixmath/libfixmath/fract32.h \
+ ../..//lib/libfixmath/libfixmath/fix16.h \
+ ../..//lib/pbio/include/pbio/error.h ../..//lib/pbio/include/pbio/port.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h \
+ ../..//lib/pbio/include/pbdrv/config.h \
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h \
+ ../..//lib/pbio/include/pbio/dcmotor.h \
+ ../..//lib/pbio/include/pbio/config.h pbioconfig.h \
+ ../..//lib/pbio/include/pbio/iodev.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h \
+ ../..//lib/lego/lego_uart.h ../..//lib/pbio/include/pbio/trajectory.h \
+ ../..//lib/pbio/include/pbio/integrator.h \
+ ../..//lib/pbio/include/pbio/logger.h \
+ ../..//lib/pbio/include/pbio/observer.h
+ ../../lib/pbio/platform/motors/settings.c :
+ ../..//lib/pbio/include/pbio/control.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h :
+ ../..//lib/libfixmath/libfixmath/fixmath.h :
+ ../..//lib/libfixmath/libfixmath/uint32.h :
+ ../..//lib/libfixmath/libfixmath/int64.h :
+ ../..//lib/libfixmath/libfixmath/fract32.h :
+ ../..//lib/libfixmath/libfixmath/fix16.h :
+ ../..//lib/pbio/include/pbio/error.h ../..//lib/pbio/include/pbio/port.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h :
+ ../..//lib/pbio/include/pbdrv/config.h :
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h :
+ ../..//lib/pbio/include/pbio/dcmotor.h :
+ ../..//lib/pbio/include/pbio/config.h pbioconfig.h :
+ ../..//lib/pbio/include/pbio/iodev.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h :
+ ../..//lib/lego/lego_uart.h ../..//lib/pbio/include/pbio/trajectory.h :
+ ../..//lib/pbio/include/pbio/integrator.h :
+ ../..//lib/pbio/include/pbio/logger.h :
+ ../..//lib/pbio/include/pbio/observer.h :

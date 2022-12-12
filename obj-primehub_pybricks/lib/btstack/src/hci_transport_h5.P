@@ -1,0 +1,5 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/btstack/src/hci_transport_h5.o: \
+ ../../lib/btstack/src/hci_transport_h5.c \
+ ../..//lib/pbio/platform/prime_hub_asp3/btstack_config.h
+ ../../lib/btstack/src/hci_transport_h5.c :
+ ../..//lib/pbio/platform/prime_hub_asp3/btstack_config.h :

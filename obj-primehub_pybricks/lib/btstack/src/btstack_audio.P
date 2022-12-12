@@ -1,0 +1,7 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/btstack/src/btstack_audio.o: \
+ ../../lib/btstack/src/btstack_audio.c \
+ ../../lib/btstack/src/btstack_audio.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h
+ ../../lib/btstack/src/btstack_audio.c :
+ ../../lib/btstack/src/btstack_audio.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h :

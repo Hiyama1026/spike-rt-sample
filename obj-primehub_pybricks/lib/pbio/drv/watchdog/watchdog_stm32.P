@@ -1,0 +1,25 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/pbio/drv/watchdog/watchdog_stm32.o: \
+ ../../lib/pbio/drv/watchdog/watchdog_stm32.c \
+ ../..//lib/pbio/include/pbdrv/config.h \
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h \
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/stm32f4xx.h \
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/stm32f413xx.h \
+ ../../micropython/lib/cmsis/inc/core_cm4.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
+ ../../micropython/lib/cmsis/inc/cmsis_version.h \
+ ../../micropython/lib/cmsis/inc/cmsis_compiler.h \
+ ../../micropython/lib/cmsis/inc/cmsis_gcc.h \
+ ../../micropython/lib/cmsis/inc/mpu_armv7.h \
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/system_stm32f4xx.h
+ ../../lib/pbio/drv/watchdog/watchdog_stm32.c :
+ ../..//lib/pbio/include/pbdrv/config.h :
+ ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h :
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/stm32f4xx.h :
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/stm32f413xx.h :
+ ../../micropython/lib/cmsis/inc/core_cm4.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h :
+ ../../micropython/lib/cmsis/inc/cmsis_version.h :
+ ../../micropython/lib/cmsis/inc/cmsis_compiler.h :
+ ../../micropython/lib/cmsis/inc/cmsis_gcc.h :
+ ../../micropython/lib/cmsis/inc/mpu_armv7.h :
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/system_stm32f4xx.h :

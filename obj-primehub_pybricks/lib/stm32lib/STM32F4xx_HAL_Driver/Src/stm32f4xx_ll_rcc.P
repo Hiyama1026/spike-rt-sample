@@ -1,0 +1,23 @@
+/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/stm32lib/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.o: \
+ ../../micropython/lib/stm32lib/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.c \
+ ../../micropython/lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rcc.h \
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/stm32f4xx.h \
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/stm32f413xx.h \
+ ../../micropython/lib/cmsis/inc/core_cm4.h \
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
+ ../../micropython/lib/cmsis/inc/cmsis_version.h \
+ ../../micropython/lib/cmsis/inc/cmsis_compiler.h \
+ ../../micropython/lib/cmsis/inc/cmsis_gcc.h \
+ ../../micropython/lib/cmsis/inc/mpu_armv7.h \
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/system_stm32f4xx.h
+ ../../micropython/lib/stm32lib/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.c :
+ ../../micropython/lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rcc.h :
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/stm32f4xx.h :
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/stm32f413xx.h :
+ ../../micropython/lib/cmsis/inc/core_cm4.h :
+ /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h :
+ ../../micropython/lib/cmsis/inc/cmsis_version.h :
+ ../../micropython/lib/cmsis/inc/cmsis_compiler.h :
+ ../../micropython/lib/cmsis/inc/cmsis_gcc.h :
+ ../../micropython/lib/cmsis/inc/mpu_armv7.h :
+ ../../micropython/lib/stm32lib/CMSIS/STM32F4xx/Include/system_stm32f4xx.h :
