@@ -1,19 +1,18 @@
 #include <t_syslog.h>
 #include "kernel_cfg.h"
-#include "switch_edge_LT.h"
+#include "rapid_LT.h"
 #include "cbricks/pup/motor.h"
 #include "cbricks/pup/colorsensor.h"
 
-#include "cbricks/hub/display.h"
-
 //#include <pbsys/user_program.h>
 
-static void motor_drive_control(int steering_amount, int R_motor_pt, int L_motor_pt, int edge){
+static void motor_drive_control(int steering_amount, int R_motor_pt, int L_motor_pt){
   
   int left_motor_powor, right_motor_powor;
 
-  left_motor_powor = (int)(BACE_SPEED + (steering_amount * edge));
-  right_motor_powor = (int)(BACE_SPEED - (steering_amount * edge));
+  /*走行エッジを右にする場合はRIGHT_EDGEに切り替える*/
+  left_motor_powor = (int)(BACE_SPEED + (steering_amount * LEFT_EDGE));
+  right_motor_powor = (int)(BACE_SPEED - (steering_amount * LEFT_EDGE));
 
   /*左右モーター駆動パワーの設定*/
   pup_motor_set_duty_limit(L_motor_pt, left_motor_powor);
@@ -70,55 +69,23 @@ main_task(intptr_t exinf)
     dly_tsk(1000000);
   }
   pup_motor_set_duty_limit(l_motor, BACE_SPEED);
-  pup_motor_reset_count(l_motor);
   // TEST_ASSERT_NOT_EQUAL(err, PBIO_ERROR_NO_DEV);
   // TEST_ASSERT_EQUAL(err, PBIO_SUCCESS);
 
-  bool test_change = false;
-  bool is_change = false;
-  bool passed_center = false;
-  int edge = LEFT_EDGE;   //初めは左エッジ
   static float diff[2];
-  static int now_brightness, target_brightness, reflection, integral, encoder_val, base_brightness, cnt;
+  static int target_brightness, reflection, integral;
   static float p, i, d, diff_brightness, steering_amount;
-  base_brightness = (int)(WHITE_BRIGHTNESS-BLACK_BRIGHTNESS)/2;
   pup_motor_set_speed(r_motor, 1000);
   pup_motor_set_speed(l_motor, 1000);
   while (1)
   {   
+    /*ステアリングの操舵量を計算*/
     
-    now_brightness = target_brightness;
-    /*目標輝度を計算*/
-    if(is_change == false){
-    target_brightness = base_brightness;
-    }
-    else {
-      if((passed_center == false) && (now_brightness > BLACK_BRIGHTNESS)){
-        cnt++;
-        if(cnt == 4){
-          target_brightness = now_brightness - 1;
-          cnt = 0;
-        }
-      }
-      else if((now_brightness == (double)BLACK_BRIGHTNESS) && (passed_center == false)){
-        edge = RIGHT_EDGE;  //エッジ切り替え
-        passed_center = true;
-      }
-      else if((passed_center == true) && (now_brightness < base_brightness)){
-        cnt++;
-        if(cnt == 4){
-          target_brightness = now_brightness + 1;
-          cnt = 0;
-        }
-        if((int)target_brightness == (int)base_brightness){
-          passed_center = false;
-          is_change = false;
-        }
-      }
-    }
-
+    /*目標輝度*/
+    target_brightness = (WHITE_BRIGHTNESS-BLACK_BRIGHTNESS)/2;
     /*カラーセンサー値の取得*/
     reflection =  pup_color_sensor_reflection(col);
+    //syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", reflection);
     diff[0] = diff[1];
     /*目標輝度とカラーセンサー値の差分を計算*/
     diff[1] = (float)(target_brightness - reflection);
@@ -130,24 +97,9 @@ main_task(intptr_t exinf)
     steering_amount = p + i + d;
 
     /*走行モーター制御*/
-    motor_drive_control(steering_amount, r_motor, l_motor, edge);
+    motor_drive_control(steering_amount, r_motor, l_motor);
 
-    encoder_val = pup_motor_get_count(l_motor);
-    if((encoder_val >= 720) && test_change == false){
-      is_change = true;
-      test_change = true;
-    }
-    hub_display_number(target_brightness);
-/*
-    encoder_val = pup_motor_get_count(l_motor);
-
-    if(encoder_val >= 180 && change == false){
-      edge = RIGHT_EDGE;
-      change = true;
-    }
-*/
-
-    dly_tsk(3900);  //delay 4msec
+    dly_tsk(4000);  //delay 4msec
   }
 
   pbsys_user_program_unprepare();
