@@ -1,13 +1,3 @@
-// SPDX-License-Identifier: MIT
-/*
- * Copyright (c) 2022 Embedded and Real-Time Systems Laboratory,
- *                    Graduate School of Information Science, Nagoya Univ., JAPAN
- */
-
-/*
- *		サンプルプログラム(1)のヘッダファイル
- */
-
 #include <kernel.h>
 
 /*
@@ -20,7 +10,7 @@
 #define DELTA_T (0.004)
 
 /*カラーセンサーの輝度設定*/
-#define WHITE_BRIGHTNESS  (80)
+#define WHITE_BRIGHTNESS  (74)
 #define BLACK_BRIGHTNESS  (4)
 
 /*ステアリング操舵量の係数*/
@@ -34,9 +24,9 @@
 #define RIGHT_EDGE        (1)
 
 /*PIDパラメータ*/
-#define KP (0.75)
+#define KP (0.95)
 #define KI (0.01)
-#define KD (0.167)
+#define KD (0.19)
 
 /*
  *  ターゲットに依存する可能性のある定数の定義

@@ -1,13 +1,3 @@
-// SPDX-License-Identifier: MIT
-/*
- * Copyright (c) 2022 Embedded and Real-Time Systems Laboratory,
- *                    Graduate School of Information Science, Nagoya Univ., JAPAN
- */
-
-/*
- *		サンプルプログラム(1)のヘッダファイル
- */
-
 #include <kernel.h>
 
 /*
@@ -20,7 +10,7 @@
 #define DELTA_T (0.001)
 
 /*カラーセンサーの輝度設定*/
-#define WHITE_BRIGHTNESS  (80)
+#define WHITE_BRIGHTNESS  (74)
 #define BLACK_BRIGHTNESS  (4)
 
 /*ステアリング操舵量の係数*/
