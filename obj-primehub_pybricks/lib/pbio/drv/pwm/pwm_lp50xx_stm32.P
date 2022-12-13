@@ -1,7 +1,0 @@
-/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/pbio/drv/pwm/pwm_lp50xx_stm32.o: \
- ../../lib/pbio/drv/pwm/pwm_lp50xx_stm32.c \
- ../..//lib/pbio/include/pbdrv/config.h \
- ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h
- ../../lib/pbio/drv/pwm/pwm_lp50xx_stm32.c :
- ../..//lib/pbio/include/pbdrv/config.h :
- ../..//lib/pbio/platform/prime_hub_asp3/pbdrvconfig.h :

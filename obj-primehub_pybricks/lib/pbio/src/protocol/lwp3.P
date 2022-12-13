@@ -1,5 +1,0 @@
-/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/pbio/src/protocol/lwp3.o: \
- ../../lib/pbio/src/protocol/lwp3.c \
- /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h
- ../../lib/pbio/src/protocol/lwp3.c :
- /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h :

@@ -1,9 +1,0 @@
-/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/contiki-core/sys/timer.o: \
- ../../lib/contiki-core/sys/timer.c \
- ../..//lib/pbio/platform/prime_hub_asp3/contiki-conf.h \
- /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
- ../..//lib/contiki-core/sys/clock.h ../..//lib/contiki-core/sys/timer.h
- ../../lib/contiki-core/sys/timer.c :
- ../..//lib/pbio/platform/prime_hub_asp3/contiki-conf.h :
- /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h :
- ../..//lib/contiki-core/sys/clock.h ../..//lib/contiki-core/sys/timer.h :

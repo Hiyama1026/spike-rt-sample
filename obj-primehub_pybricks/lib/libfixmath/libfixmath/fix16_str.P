@@ -1,9 +1,0 @@
-/home/hiyama/spike-rt/build/work/obj-primehub_pybricks/lib/libfixmath/libfixmath/fix16_str.o: \
- ../../lib/libfixmath/libfixmath/fix16_str.c \
- ../../lib/libfixmath/libfixmath/fix16.h \
- /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h \
- /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h
- ../../lib/libfixmath/libfixmath/fix16_str.c :
- ../../lib/libfixmath/libfixmath/fix16.h :
- /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h :
- /usr/lib/gcc/arm-none-eabi/9.2.1/include/stdbool.h :
