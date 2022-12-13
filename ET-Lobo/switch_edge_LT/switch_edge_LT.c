@@ -80,7 +80,7 @@ main_task(intptr_t exinf)
   int edge = LEFT_EDGE;   //初めは左エッジ
   static float diff[2];
   static int now_brightness, target_brightness, reflection, integral, encoder_val, base_brightness, cnt;
-  static float p, i, d, diff_brightness, steering_amount;
+  static float p, i, d, diff_brightness, steering_amount, Ke;
   base_brightness = (int)(WHITE_BRIGHTNESS-BLACK_BRIGHTNESS)/2;
   pup_motor_set_speed(r_motor, 1000);
   pup_motor_set_speed(l_motor, 1000);
@@ -91,32 +91,41 @@ main_task(intptr_t exinf)
     /*目標輝度を計算*/
     if(is_change == false){
     target_brightness = base_brightness;
+    Ke = 0;
     }
     else {
       if((passed_center == false) && (now_brightness > BLACK_BRIGHTNESS)){
         cnt++;
-        if(cnt == 4){
+        if(cnt == 2){
           target_brightness = now_brightness - 1;
           cnt = 0;
+          Ke = 1.3;
         }
       }
       else if((now_brightness == (double)BLACK_BRIGHTNESS) && (passed_center == false)){
-        edge = RIGHT_EDGE;  //エッジ切り替え
-        passed_center = true;
+        cnt++;
+        if(cnt == 5){
+          edge = RIGHT_EDGE;  //エッジ切り替え
+          passed_center = true;
+          cnt = 0;
+          Ke = 0.8;
+        }
       }
       else if((passed_center == true) && (now_brightness < base_brightness)){
         cnt++;
         if(cnt == 4){
           target_brightness = now_brightness + 1;
           cnt = 0;
+          Ke = 1;
         }
         if((int)target_brightness == (int)base_brightness){
           passed_center = false;
           is_change = false;
+          Ke = 0;
         }
       }
     }
-
+    hub_display_number(target_brightness);
     /*カラーセンサー値の取得*/
     reflection =  pup_color_sensor_reflection(col);
     diff[0] = diff[1];
@@ -124,11 +133,11 @@ main_task(intptr_t exinf)
     diff[1] = (float)(target_brightness - reflection);
     /*ステアリング操舵量を計算*/
     integral += (diff[1] + diff[0]) / 2.0 * DELTA_T;
-    p = KP * diff[1];
+    p = (KP+Ke) * diff[1];
     i = KI * integral;
     d = KD * (diff[1] - diff[0]) / DELTA_T; 
     steering_amount = p + i + d;
-
+    syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", Ke);
     /*走行モーター制御*/
     motor_drive_control(steering_amount, r_motor, l_motor, edge);
 
@@ -137,7 +146,7 @@ main_task(intptr_t exinf)
       is_change = true;
       test_change = true;
     }
-    hub_display_number(target_brightness);
+
 /*
     encoder_val = pup_motor_get_count(l_motor);
 
