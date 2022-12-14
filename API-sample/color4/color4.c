@@ -4,12 +4,12 @@
 #include "cbricks/pup/colorsensor.h"
 #include "cbricks/pup/ultrasonicsensor.h"
 #include "pbio/color.h"
+#include "cbricks/hub/display.h"
 #include <stdio.h>
 
 void
 main_task(intptr_t exinf)
 {
-  syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", 0);
 
   // Prepare the pybricks runtime for running a user program.
   // TODO: integrate pbsys_user_program_prepare() and wup_pybricks into one function. 
@@ -29,7 +29,7 @@ main_task(intptr_t exinf)
   while (1)
   {
     amb = pup_color_sensor_ambient(col);
-    syslog(LOG_NOTICE, "amb = %d %%", amb);
+    hub_display_number(amb);
 
     if(amb > 10 && amb <= 40)      pup_ultrasonic_sensor_light_set(ult, 0, 0, 30, 30);
     else if(amb <= 10) pup_ultrasonic_sensor_light_set(ult, 100, 100, 30, 30);

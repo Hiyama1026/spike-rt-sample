@@ -9,8 +9,9 @@ APIの挙動を確認するために作成したサンプルです。どのサ�
 - pup_color_sensor_color()
 ### color2.c
 - pup_color_sensor_light_set()
-### color3.c
+### color3.c　(*)
 - pup_color_sensor_reflection()
+- hub_display_number()
 ### color4.c
 - pup_color_sensor_ambient()
 ### color5.c
