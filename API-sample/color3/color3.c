@@ -2,6 +2,7 @@
 #include "kernel_cfg.h"
 #include "color3.h"
 #include "cbricks/pup/colorsensor.h"
+#include "cbricks/hub/display.h"
 
 #include <stdio.h>
 
@@ -30,11 +31,13 @@ main_task(intptr_t exinf)
     ref = pup_color_sensor_reflection(col);
     if(ref == 0){
       syslog(LOG_NOTICE, "reflectance : %d %%.", ref);
+      hub_display_number(ref);
       while(ref == 0){
         ref = pup_color_sensor_reflection(col);
       }
     } 
     syslog(LOG_NOTICE, "reflectance : %d %%.", ref);
+    hub_display_number(ref);
     dly_tsk(1000000);
   }
 }
