@@ -182,18 +182,18 @@ CFLAGS = $(COPTS) $(CDEFS) $(INCLUDES)
 #
 #  アプリケーションプログラムに関する定義
 #
-APPLNAME = ultrasonic
+APPLNAME = ultrasonic2
 APPLDIRS = .
-APPL_CFG = ultrasonic.cfg
-APPL_CDL = ultrasonic.cdl
+APPL_CFG = ultrasonic2.cfg
+APPL_CDL = ultrasonic2.cdl
 
 APPL_DIRS := $(APPLDIRS) $(SRCDIR)/library
 APPL_ASMOBJS :=
 ifdef USE_CXX
-	APPL_CXXOBJS := ultrasonic.o
+	APPL_CXXOBJS := ultrasonic2.o
 	APPL_COBJS :=
 else
-	APPL_COBJS := ultrasonic.o
+	APPL_COBJS := ultrasonic2.o
 endif
 APPL_COBJS := $(APPL_COBJS) log_output.o vasyslog.o t_perror.o strerror.o
 APPL_CFLAGS := $(APPL_CFLAGS)

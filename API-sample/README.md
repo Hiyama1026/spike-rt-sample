@@ -63,10 +63,13 @@ hub_display_char()で文字を出力する。
 - pup_color_sensor_light_off()
 ### motor4.c
 メインタスクから関数呼び出しでモーターを駆動する。
-### ultrasonic.c　(*)
+### ultrasonic1.c　(*)
 超音波センサが物体を検知したら、物体までの距離に応じて超音波センサの各ライトを点灯する。物体までの距離(mm)を表示する。
 - pup_ultrasonic_sensor_get_device()
 - pup_ultrasonic_sensor_distance()
 - pup_ultrasonic_sensor_light_on()
 - pup_ultrasonic_sensor_light_set()
 - pup_ultrasonic_sensor_light_off()
+### ultrasonic2.c
+超音波を検出したらライトを点灯する。
+- pup_ultrasonic_sensor_light_on()
