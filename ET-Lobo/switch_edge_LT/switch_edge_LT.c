@@ -8,12 +8,14 @@
 
 //#include <pbsys/user_program.h>
 
+extern int base_speed = 6;
+
 static void motor_drive_control(int steering_amount, int R_motor_pt, int L_motor_pt, int edge){
   
   int left_motor_powor, right_motor_powor;
 
-  left_motor_powor = (int)(BACE_SPEED + (steering_amount * edge));
-  right_motor_powor = (int)(BACE_SPEED - (steering_amount * edge));
+  left_motor_powor = (int)(base_speed + (steering_amount * edge));
+  right_motor_powor = (int)(base_speed - (steering_amount * edge));
 
   /*左右モーター駆動パワーの設定*/
   pup_motor_set_duty_limit(L_motor_pt, left_motor_powor);
@@ -57,7 +59,7 @@ main_task(intptr_t exinf)
     // Set up failed -> Wait 1s and ry one more
     dly_tsk(1000000);
   }
-  pup_motor_set_duty_limit(r_motor, BACE_SPEED);
+  pup_motor_set_duty_limit(r_motor, base_speed);
   /*左モーターをセットアップ*/
   for(int i = 0; i < 10; i++)
   {
@@ -69,7 +71,7 @@ main_task(intptr_t exinf)
     // Set up failed -> Wait 1s and ry one more
     dly_tsk(1000000);
   }
-  pup_motor_set_duty_limit(l_motor, BACE_SPEED);
+  pup_motor_set_duty_limit(l_motor, base_speed);
   pup_motor_reset_count(l_motor);
   // TEST_ASSERT_NOT_EQUAL(err, PBIO_ERROR_NO_DEV);
   // TEST_ASSERT_EQUAL(err, PBIO_SUCCESS);
@@ -92,36 +94,39 @@ main_task(intptr_t exinf)
     if(is_change == false){
     target_brightness = base_brightness;
     Ke = 0;
+    base_speed =6;
     }
     else {
       if((passed_center == false) && (now_brightness > BLACK_BRIGHTNESS)){
         cnt++;
-        if(cnt == 2){
+        base_speed = 5;
+        if(cnt == 3){
           target_brightness = now_brightness - 1;
           cnt = 0;
-          Ke = 1.3;
+          Ke = 0.16;
         }
       }
       else if((now_brightness == (double)BLACK_BRIGHTNESS) && (passed_center == false)){
         cnt++;
-        if(cnt == 5){
+        base_speed = 5;
+        if(cnt ==3){
           edge = RIGHT_EDGE;  //エッジ切り替え
           passed_center = true;
           cnt = 0;
-          Ke = 0.8;
+          Ke = 0.16;
         }
       }
       else if((passed_center == true) && (now_brightness < base_brightness)){
         cnt++;
-        if(cnt == 4){
+        base_speed = 5;
+        if(cnt == 3){
           target_brightness = now_brightness + 1;
           cnt = 0;
-          Ke = 1;
+          Ke = 0.16;
         }
         if((int)target_brightness == (int)base_brightness){
           passed_center = false;
           is_change = false;
-          Ke = 0;
         }
       }
     }
@@ -141,11 +146,13 @@ main_task(intptr_t exinf)
     /*走行モーター制御*/
     motor_drive_control(steering_amount, r_motor, l_motor, edge);
 
+    
     encoder_val = pup_motor_get_count(l_motor);
     if((encoder_val >= 720) && test_change == false){
       is_change = true;
       test_change = true;
     }
+    
 
 /*
     encoder_val = pup_motor_get_count(l_motor);

@@ -2,4 +2,5 @@ obj-primehub_pybricks
 dfu_write.bat
 *.bak
 switch_edge_LT2
+basic_LT2
 test

@@ -14,10 +14,10 @@
 #define BLACK_BRIGHTNESS  (4)
 
 /*ステアリング操舵量の係数*/
-#define STEERING_COF      (0.7)
+#define STEERING_COF      (0.1)
 
 /*基本走行スピード*/
-#define BACE_SPEED        (50)
+#define BACE_SPEED        (6)
 
 /*ライントレースエッジ切り替え*/
 #define LEFT_EDGE         (-1)

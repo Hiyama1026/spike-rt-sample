@@ -3,6 +3,7 @@
 #include "basic_LT.h"
 #include "spike/pup/motor.h"
 #include "spike/pup/colorsensor.h"
+#include "spike/hub/display.h"
 
 //#include <pbsys/user_program.h>
 
@@ -90,7 +91,7 @@ main_task(intptr_t exinf)
   pup_motor_set_duty_limit(l_motor, BACE_SPEED);
   // TEST_ASSERT_NOT_EQUAL(err, PBIO_ERROR_NO_DEV);
   // TEST_ASSERT_EQUAL(err, PBIO_SUCCESS);
-
+  hub_display_off();
   int steering_amount;
   pup_motor_set_speed(r_motor, 1000);
   pup_motor_set_speed(l_motor, 1000);
