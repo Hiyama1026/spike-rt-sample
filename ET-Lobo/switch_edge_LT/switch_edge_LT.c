@@ -3,7 +3,6 @@
 #include "switch_edge_LT.h"
 #include "spike/pup/motor.h"
 #include "spike/pup/colorsensor.h"
-
 #include "spike/hub/display.h"
 
 //#include <pbsys/user_program.h>
@@ -152,17 +151,6 @@ main_task(intptr_t exinf)
       is_change = true;
       test_change = true;
     }
-    
-
-/*
-    encoder_val = pup_motor_get_count(l_motor);
-
-    if(encoder_val >= 180 && change == false){
-      edge = RIGHT_EDGE;
-      change = true;
-    }
-*/
-
     dly_tsk(3900);  //delay 4msec
   }
 
