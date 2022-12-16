@@ -5,6 +5,8 @@ ETロボコンの走行体(LEGO SPIKE)をSpike-rtの環境で動かすサンプ�
 ### basic_LT
 - 走行体をP制御でライントレースさせる。
 - RasPike環境用に用意されたサンプル([sample_c5](https://github.com/ETrobocon/RasPike/tree/master/sdk/workspace/sample_c5))を参考にして作成した。
+### brightness_measure
+- カラーセンサーで輝度を測定してディスプレイに表示する。
 ### pid_controller_LT
 - 走行体をPID制御でライントレースさせる。
 ### switch_edge_LT
