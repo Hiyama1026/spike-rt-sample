@@ -6,15 +6,15 @@
 #include "kernel_cfg.h"
 #include "led3.h"
 
-#include "cbricks/hub/display.h"
+#include "spike/hub/display.h"
 #include "pbio/light_matrix.h"
-#include <cbricks/hub/light.h>
+#include <spike/hub/light.h>
 
 #include <pbsys/light.h>
 #include <pbio/light.h>
 #include <pbio/color.h>
 
-#include "cbricks/pup/colorsensor.h"
+#include "spike/pup/colorsensor.h"
 
 extern const uint8_t pb_font_5x5[95][5];
 

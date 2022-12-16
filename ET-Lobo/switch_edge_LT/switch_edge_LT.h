@@ -10,7 +10,7 @@
 #define DELTA_T (0.004)
 
 /*カラーセンサーの輝度設定*/
-#define WHITE_BRIGHTNESS  (73)
+#define WHITE_BRIGHTNESS  (74)
 #define BLACK_BRIGHTNESS  (4)
 
 /*ステアリング操舵量の係数*/

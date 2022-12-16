@@ -1,8 +1,8 @@
 #include <t_syslog.h>
 #include "kernel_cfg.h"
 #include "ultrasonic2.h"
-#include "cbricks/pup/ultrasonicsensor.h"
-#include "cbricks/hub/display.h"
+#include "spike/pup/ultrasonicsensor.h"
+#include "spike/hub/display.h"
 
 //#include <pbsys/user_program.h>
 

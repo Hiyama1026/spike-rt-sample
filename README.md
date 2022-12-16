@@ -3,13 +3,13 @@
 - このサンプルは[spike-rt](https://github.com/spike-rt/spike-rt)内のbuildディレクトリの直下に展開すると実行することができます。
 - 1回目のビルド時にエラーが出るかもしれません。その場合はもう一度ビルドをしてみてください。2回目のビルドで問題なく実行できるようになります。
 - サンプルのヘッダーファイルの名前が旧バージョンのまま訂正ができていません。訂正してからビルドしてください。
-    - #include "cbricks/pup/motor.h" -> #include "spike/pup/motor.h"
-    - #include "cbricks/pup/colorsensor.h" -> #include "spike/pup/colorsensor.h"
-    - #include "cbricks/pup/forcesensor.h" -> #include "spike/pup/forcesensor.h"
-    - #include "cbricks/pup/ultrasonicsensor.h" -> #include "spike/pup/ultrasonicsensor.h"
-    - #include "cbricks/hub/display.h" -> #include "spike/pup/ultrasonicsensor.h"
-    - #include "cbricks/hub/display.h" -> #include "spike/hub/display.h"
-    - #include "cbricks/hub/light.h" -> #include "spike/hub/light.h"
+    - #include "spike/pup/motor.h" -> #include "spike/pup/motor.h"
+    - #include "spike/pup/colorsensor.h" -> #include "spike/pup/colorsensor.h"
+    - #include "spike/pup/forcesensor.h" -> #include "spike/pup/forcesensor.h"
+    - #include "spike/pup/ultrasonicsensor.h" -> #include "spike/pup/ultrasonicsensor.h"
+    - #include "spike/hub/display.h" -> #include "spike/pup/ultrasonicsensor.h"
+    - #include "spike/hub/display.h" -> #include "spike/hub/display.h"
+    - #include "spike/hub/light.h" -> #include "spike/hub/light.h"
 
 
 

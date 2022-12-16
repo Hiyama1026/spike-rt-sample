@@ -1,7 +1,7 @@
 #include <t_syslog.h>
 #include "kernel_cfg.h"
 #include "color2.h"
-#include "cbricks/pup/colorsensor.h"
+#include "spike/pup/colorsensor.h"
 
 #include <stdio.h>
 

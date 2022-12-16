@@ -1,7 +1,7 @@
 #include <t_syslog.h>
 #include "kernel_cfg.h"
 #include "force1.h"
-#include "cbricks/pup/forcesensor.h"
+#include "spike/pup/forcesensor.h"
 
 #include <stdio.h>
 

@@ -7,7 +7,7 @@
 #include <t_syslog.h>
 #include "kernel_cfg.h"
 #include "ultrasonic1.h"
-#include "cbricks/pup/ultrasonicsensor.h"
+#include "spike/pup/ultrasonicsensor.h"
 
 //#include <pbsys/user_program.h>
 

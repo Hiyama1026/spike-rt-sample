@@ -1,10 +1,10 @@
 #include <t_syslog.h>
 #include "kernel_cfg.h"
 #include "color4.h"
-#include "cbricks/pup/colorsensor.h"
-#include "cbricks/pup/ultrasonicsensor.h"
+#include "spike/pup/colorsensor.h"
+#include "spike/pup/ultrasonicsensor.h"
 #include "pbio/color.h"
-#include "cbricks/hub/display.h"
+#include "spike/hub/display.h"
 #include <stdio.h>
 
 void

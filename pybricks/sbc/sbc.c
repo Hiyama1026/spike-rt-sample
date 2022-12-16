@@ -1,11 +1,11 @@
 #include <t_syslog.h>
 #include "kernel_cfg.h"
 #include "sbc.h"
-#include "cbricks/pup/motor.h"
-#include "cbricks/pup/ultrasonicsensor.h"
-#include "cbricks/pup/colorsensor.h"
+#include "spike/pup/motor.h"
+#include "spike/pup/ultrasonicsensor.h"
+#include "spike/pup/colorsensor.h"
 
-#include "cbricks/hub/display.h"
+#include "spike/hub/display.h"
 #include "pbio/light_matrix.h"
 
 #include "pbsys/light.h"

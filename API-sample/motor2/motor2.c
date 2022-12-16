@@ -7,8 +7,8 @@
 #include <t_syslog.h>
 #include "kernel_cfg.h"
 #include "motor2.h"
-#include "cbricks/pup/motor.h"
-#include "cbricks/hub/button.h"
+#include "spike/pup/motor.h"
+#include "spike/hub/button.h"
 
 
 //#include <pbsys/user_program.h>

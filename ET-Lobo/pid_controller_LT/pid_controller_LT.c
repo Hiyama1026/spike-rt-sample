@@ -1,8 +1,8 @@
 #include <t_syslog.h>
 #include "kernel_cfg.h"
 #include "pid_controller_LT.h"
-#include "cbricks/pup/motor.h"
-#include "cbricks/pup/colorsensor.h"
+#include "spike/pup/motor.h"
+#include "spike/pup/colorsensor.h"
 
 //#include <pbsys/user_program.h>
 

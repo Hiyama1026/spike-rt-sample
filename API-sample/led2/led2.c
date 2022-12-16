@@ -6,9 +6,9 @@
 #include "kernel_cfg.h"
 #include "led2.h"
 
-#include "cbricks/hub/display.h"
+#include "spike/hub/display.h"
 #include "pbio/light_matrix.h"
-#include <cbricks/hub/light.h>
+#include <spike/hub/light.h>
 
 #include <pbsys/light.h>
 #include <pbio/light.h>

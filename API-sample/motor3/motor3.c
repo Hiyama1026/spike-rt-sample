@@ -7,9 +7,9 @@
 #include <t_syslog.h>
 #include "kernel_cfg.h"
 #include "motor3.h"
-#include "cbricks/pup/motor.h"
-#include "cbricks/hub/button.h"
-#include "cbricks/pup/colorsensor.h"
+#include "spike/pup/motor.h"
+#include "spike/hub/button.h"
+#include "spike/pup/colorsensor.h"
 
 
 static inline hub_button_t hub_buttons_pressed(hub_button_t buttons)
