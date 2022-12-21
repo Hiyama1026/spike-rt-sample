@@ -7,7 +7,7 @@
 
 //#include <pbsys/user_program.h>
 
-extern int base_speed = 6;
+extern int base_speed = 5;
 
 static void motor_drive_control(int steering_amount, int R_motor_pt, int L_motor_pt, int edge){
   
@@ -98,30 +98,30 @@ main_task(intptr_t exinf)
     else {
       if((passed_center == false) && (now_brightness > BLACK_BRIGHTNESS)){
         cnt++;
-        base_speed = 5;
+        base_speed = 4;
         if(cnt == 3){
           target_brightness = now_brightness - 1;
           cnt = 0;
-          Ke = 0.16;
+          Ke = 0.17;
         }
       }
       else if((now_brightness == (double)BLACK_BRIGHTNESS) && (passed_center == false)){
         cnt++;
-        base_speed = 5;
+        base_speed = 4;
         if(cnt ==3){
           edge = RIGHT_EDGE;  //エッジ切り替え
           passed_center = true;
           cnt = 0;
-          Ke = 0.16;
+          Ke = 0.17;
         }
       }
       else if((passed_center == true) && (now_brightness < base_brightness)){
         cnt++;
-        base_speed = 5;
+        base_speed = 4;
         if(cnt == 3){
           target_brightness = now_brightness + 1;
           cnt = 0;
-          Ke = 0.16;
+          Ke = 0.17;
         }
         if((int)target_brightness == (int)base_brightness){
           passed_center = false;
