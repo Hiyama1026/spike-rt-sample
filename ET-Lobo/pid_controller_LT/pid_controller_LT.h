@@ -22,7 +22,7 @@
 
 /*PIDパラメータ*/
 #define KP (0.1)
-#define KI (0)
+#define KI (0.001)
 #define KD (0.007)
 
 /*
