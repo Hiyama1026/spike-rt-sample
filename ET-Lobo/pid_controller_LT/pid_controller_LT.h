@@ -10,20 +10,20 @@
 #define DELTA_T (0.004)
 
 /*カラーセンサーの輝度設定*/
-#define WHITE_BRIGHTNESS  (74)
+#define WHITE_BRIGHTNESS  (73)
 #define BLACK_BRIGHTNESS  (4)
 
 /*基本走行スピード*/
-#define BACE_SPEED        (6)
+#define BACE_SPEED        (5)
 
 /*ライントレースエッジ切り替え*/
 #define LEFT_EDGE         (-1)
 #define RIGHT_EDGE        (1)
 
 /*PIDパラメータ*/
-#define KP (0.15)
-#define KI (0.01)
-#define KD (0.1)
+#define KP (0.1)
+#define KI (0)
+#define KD (0.007)
 
 /*
  *  ターゲットに依存する可能性のある定数の定義
