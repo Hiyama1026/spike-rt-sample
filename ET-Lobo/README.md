@@ -24,6 +24,7 @@ ETロボコンの走行体(LEGO SPIKE)をSpike-rtの環境で動かすサンプ�
 ### go_straight
 - 走行体を```pup_motor_set_speed()```で直進させる。
 
-## ETロボコン用環境(RasPike)について
-- 詳しくは[こちら](https://github.com/ETrobocon/RasPike)。
+## その他
+- ETロボコン用環境(RasPike)について、詳しくは[こちら](https://github.com/ETrobocon/RasPike)。
 - 走行体は、[組立図](https://drive.google.com/file/d/17FyQBsuuXrV4BK-96fgQJy-Ou4NvqLi7/view?usp=sharing)を元に組み立てました。
+- プログラム作成の際にはETロボコン2022のサンプルコースを使用しました。
