@@ -66,7 +66,7 @@ endif
 #
 #  ソースファイルのディレクトリの定義
 #
-SRCDIR = ../../../../asp3
+SRCDIR = ../../../asp3
 
 #
 #  オブジェクトファイル名の拡張子の設定
@@ -77,7 +77,7 @@ OBJEXT =
 #  カーネルライブラリ（libkernel.a）のディレクトリ名
 #  （カーネルライブラリもmake対象にする時は，空に定義する）
 #
-KERNEL_LIB = ../../../obj-primehub_kernel
+KERNEL_LIB = ../../../build/obj-primehub_kernel
 
 #
 #  カーネルを関数単位でコンパイルするかどうかの定義

@@ -4,4 +4,6 @@ Makefile.inc
 
 switch_edge_LT2
 basic_LT2
+pid_controller_LT2
+go_straight
 test
