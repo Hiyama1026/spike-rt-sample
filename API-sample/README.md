@@ -21,6 +21,12 @@ APIの挙動を確認するために作成したサンプルです。<br>注意�
 ### color5.c　(*)
 カラーセンサーが取得する色を指定し、取得した色を表示する。
 - pup_color_sensor_detectable_colors()
+### dc_motor1
+モーターをDCモーターとして活用する。
+- pybricks_c_common_dcmotor_make_new()
+- pybricks_c_common_dcmotor_duty()
+- pybricks_c_common_dcmotor_stop()
+- pybricks_c_common_dcmotor_brake()
 ### force1.c　(*)
 フォースセンサが接触を検知したら、フォースセンサが押されている力(N)を表示する。
 - pup_force_sensor_get_device()
