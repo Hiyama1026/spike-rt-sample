@@ -2,5 +2,6 @@ dfu_write.bat
 *.bak
 Makefile.inc
 
+test_color
 switch_edge_LT2
 test

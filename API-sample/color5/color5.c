@@ -12,8 +12,11 @@ pup_color_hsv_t ori_color[] = {
   { PBIO_COLOR_HUE_YELLOW, 0b01100100, 0b01100100 },
   { PBIO_COLOR_HUE_GREEN, 0b01100100, 0b01100100 },
   { PBIO_COLOR_HUE_BLUE, 0b01100100, 0b01100100 },
-	{ 0b000100101100, 0b01100100, 0b01100100 }, //Magenta
-  { 0b10110100, 0b01100100, 0b01100100 }, //Cyan
+	{ PBIO_COLOR_HUE_MAGENTA, 0b01100100, 0b01100100 }, 
+  { PBIO_COLOR_HUE_CYAN, 0b01100100, 0b01100100 }, 
+  { PBIO_COLOR_HUE_ORANGE, 0b01100100, 0b01100100 }, 
+  { PBIO_COLOR_HUE_VIOLET, 0b01100100, 0b01100100 }, 
+
   {	0, 0, 0b01100100	},//White
   {	0, 0, 0b1010	},//Brack
   { 0, 0, 0} , //None
@@ -34,7 +37,7 @@ main_task(intptr_t exinf)
 
   dly_tsk(3000000);
 
-  col = pup_color_sensor_get_device(PBIO_PORT_ID_B);
+  col = pup_color_sensor_get_device(PBIO_PORT_ID_C);
 
   pup_color_sensor_detectable_colors(9, ori_color);
 
@@ -47,8 +50,10 @@ main_task(intptr_t exinf)
     color = pup_color_sensor_color(col, true);
     syslog(LOG_NOTICE, "HSV:H = %d  S = %d  V = %d).", hsv.h, hsv.s, hsv.v);
 
-    if(color.h == 300 && color.s == 100 && color.v == 100)                    syslog(LOG_NOTICE, "Rounded Color : MAGENTA");
-    if(color.h == 180 && color.s == 100 && color.v == 100)                     syslog(LOG_NOTICE, "Rounded Color : CYAN");
+    if(color.h == PBIO_COLOR_HUE_MAGENTA && color.s == 100 && color.v == 100) syslog(LOG_NOTICE, "Rounded Color : MAGENTA");
+    if(color.h == PBIO_COLOR_HUE_CYAN && color.s == 100 && color.v == 100)    syslog(LOG_NOTICE, "Rounded Color : CYAN");
+    if(color.h == PBIO_COLOR_HUE_ORANGE && color.s == 100 && color.v == 100)    syslog(LOG_NOTICE, "Rounded Color : ORANGE");
+    if(color.h == PBIO_COLOR_HUE_VIOLET && color.s == 100 && color.v == 100)    syslog(LOG_NOTICE, "Rounded Color : VIOLET");
     if(color.h == PBIO_COLOR_HUE_RED && color.s == 100 && color.v == 100)     syslog(LOG_NOTICE, "Rounded Color : RED");
     if(color.h == PBIO_COLOR_HUE_YELLOW && color.s == 100 && color.v == 100)  syslog(LOG_NOTICE, "Rounded Color : YELLOW");
     if(color.h == PBIO_COLOR_HUE_GREEN && color.s == 100 && color.v == 100)   syslog(LOG_NOTICE, "Rounded Color : GREEN");
