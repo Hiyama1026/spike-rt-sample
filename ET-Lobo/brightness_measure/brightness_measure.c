@@ -9,14 +9,13 @@
 void
 main_task(intptr_t exinf)
 {
+  pbio_error_t err;
+  pup_device_t *col;
   syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", 0);
 
   pbsys_user_program_prepare(NULL);
   wup_pybricks();
   
-  pbio_error_t err;
-  pup_device_t *col;
-
   dly_tsk(3000000);
 
   col = pup_color_sensor_get_device(PBIO_PORT_ID_C);

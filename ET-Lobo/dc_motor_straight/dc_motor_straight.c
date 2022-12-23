@@ -14,6 +14,12 @@
 void
 main_task(intptr_t exinf)
 {
+  pbio_error_t r_err;
+  pbio_error_t l_err;
+  pup_motor_t *r_motor;
+  pbio_dcmotor_t **pt_r_dcmotor;
+  pup_motor_t *l_motor;
+  pbio_dcmotor_t **pt_l_dcmotor;
 
   syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", 0);
 
@@ -21,13 +27,6 @@ main_task(intptr_t exinf)
   // TODO: integrate pbsys_user_program_prepare() and wup_pybricks into one function. 
   pbsys_user_program_prepare(NULL);
   wup_pybricks();
-
-  pbio_error_t r_err;
-  pbio_error_t l_err;
-  pup_motor_t *r_motor;
-  pbio_dcmotor_t **pt_r_dcmotor;
-  pup_motor_t *l_motor;
-  pbio_dcmotor_t **pt_l_dcmotor;
   
   dly_tsk(3000000);
   // printf("Set Up Motor\n");

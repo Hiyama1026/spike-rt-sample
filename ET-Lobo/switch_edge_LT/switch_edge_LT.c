@@ -28,17 +28,18 @@ static void motor_drive_control(int steering_amount, int R_motor_pt, int L_motor
 void
 main_task(intptr_t exinf)
 {
+  pbio_error_t r_err;
+  pbio_error_t l_err;
+  pup_motor_t *r_motor;
+  pup_motor_t *l_motor;
+  pup_device_t *col;
 
   syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", 0);
 
   pbsys_user_program_prepare(NULL);
   wup_pybricks();
 
-  pbio_error_t r_err;
-  pbio_error_t l_err;
-  pup_motor_t *r_motor;
-  pup_motor_t *l_motor;
-  pup_device_t *col;
+  
   
   dly_tsk(3000000);
 

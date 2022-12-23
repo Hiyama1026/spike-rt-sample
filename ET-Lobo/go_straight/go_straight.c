@@ -14,14 +14,14 @@
 void
 main_task(intptr_t exinf)
 {
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks();
-
   pbio_error_t r_err;
   pbio_error_t l_err;
   pup_motor_t *r_motor;
   pup_motor_t *l_motor;
   pup_device_t *col;
+
+  pbsys_user_program_prepare(NULL);
+  wup_pybricks();
   
   dly_tsk(3000000);
 
