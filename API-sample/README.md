@@ -4,10 +4,11 @@ APIの挙動を確認するために作成したサンプルです。<br>注意�
 
 ## 各サンプルの概要と使用する主なAPI
 ### color1.c　(*)
-カラーセンサーでhsv値を取得し、読み取ったhsv値と色の種類を表示する。
+カラーセンサーでhsv値とrgb値を取得し、読み取ったhsv値、rgb値、及び色の種類を表示する。
 - ```pup_color_sensor_get_device()```
 - ```pup_color_sensor_hsv()```
 - ```pup_color_sensor_color()```
+- ```pup_color_sensor_rgb()```
 ### color2.c
 カラーセンサーの各ライトを指定した輝度で点灯する。
 - ```pup_color_sensor_light_set()```
