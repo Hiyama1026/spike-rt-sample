@@ -3,6 +3,9 @@
 APIの挙動を確認するために作成したサンプルです。<br>注意：(*)が付いたサンプルはサンプルはログの出力が必要です。
 
 ## 各サンプルの概要と使用する主なAPI
+### button1.c
+押したボタンをディスプレイに表示する。
+- ```hub_button_is_pressed()```
 ### color1.c　(*)
 カラーセンサーでhsv値とrgb値を取得し、読み取ったhsv値、rgb値、及び色の種類を表示する。
 - ```pup_color_sensor_get_device()```
@@ -57,7 +60,6 @@ hub_display_char()で文字を出力する。
 - ```pup_motor_brake()```
 - ```pup_motor_hold()```
 - ```pup_motor_get_speed()```
-- ```hub_button_is_pressed()```
 ### motor2.c　(*)
 モーターが動かされたらエンコーダー値を取得して出力する。180°以上回るとエンコーダー値をリセットする。
 - ```pup_motor_get_count()```
