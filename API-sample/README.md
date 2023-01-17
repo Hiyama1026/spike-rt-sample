@@ -47,6 +47,7 @@ APIの挙動を確認するために作成したサンプルです。<br>注意�
 - ```hub_display_off()```
 - ```hub_light_on_color()```
 - ```hub_display_number()```
+- ```hub_display_text_scroll()```
 - ```hub_display_text()```
 - ```hub_display_image()```
 - ```hub_display_pixel()```

@@ -97,7 +97,8 @@ main_task(intptr_t exinf)
   {
     hub_display_off();
     dly_tsk(500000);
-    hub_display_text("SPIKE-RT", 1000, 500);
+    hub_display_text("HELLO", 900, 500);
+    hub_display_text_scroll(" SPIKE-RT", 90);
     hub_display_image(ex);
     dly_tsk(1000000);
     pixel_on();
