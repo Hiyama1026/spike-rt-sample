@@ -69,10 +69,11 @@ hub_display_char()で文字を出力する。
 モーターが動かされたらエンコーダー値を取得して出力する。180°以上回るとエンコーダー値をリセットする。
 - ```pup_motor_get_count()```
 - ```pup_motor_reset_count()```
-### motor3.c　(*)
-回転しているモーターが止められていることを検知したら、Duty値を上げて回ろうとする。Duty値を表示する。
+### motor3.c
+モーターがストロールしているのを検知したらモーターをと止める。止まった状態でセンターボタンが押されたらduty値を元に戻す。
 - ```pup_motor_set_duty_limit()```
 - ```pup_motor_is_stalled()```
+- ```pup_motor_restore_duty_limit()```
 - ```pup_color_sensor_light_on()```
 - ```pup_color_sensor_light_off()```
 ### motor4.c
