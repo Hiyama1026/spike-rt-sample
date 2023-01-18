@@ -6,6 +6,5 @@
 ## API 
 - Spike API
     - [APIドキュメント](https://spike-rt.github.io/spike-rt/ja/html/modules.html)を参照。
-- SpikeとPybriksAPIの対応関係
-    - [PybricksAndSpike_API.md](/PybricksAndSpike_API.md) を参照。
+
 
