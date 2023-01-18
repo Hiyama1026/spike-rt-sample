@@ -1,5 +1,6 @@
 dfu_write.bat
 *.bak
+PybricksAndSpike_API.md
 Makefile.inc
 
 test_color
