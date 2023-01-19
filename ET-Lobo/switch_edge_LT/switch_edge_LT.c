@@ -94,39 +94,36 @@ main_task(intptr_t exinf)
     if(is_change == false){
     target_brightness = base_brightness;
     Ke = 0;
-    base_speed =6;
     }
     else {
       if((passed_center == false) && (now_brightness > BLACK_BRIGHTNESS)){
         cnt++;
-        base_speed = 4;
-        if(cnt == 3){
+        if(cnt == 2){
           target_brightness = now_brightness - 1;
           cnt = 0;
-          Ke = 0.17;
+          Ke = 1.3;
         }
       }
       else if((now_brightness == (double)BLACK_BRIGHTNESS) && (passed_center == false)){
         cnt++;
-        base_speed = 4;
-        if(cnt ==3){
+        if(cnt == 5){
           edge = RIGHT_EDGE;  //エッジ切り替え
           passed_center = true;
           cnt = 0;
-          Ke = 0.17;
+          Ke = 0.8;
         }
       }
       else if((passed_center == true) && (now_brightness < base_brightness)){
         cnt++;
-        base_speed = 4;
-        if(cnt == 3){
+        if(cnt == 4){
           target_brightness = now_brightness + 1;
           cnt = 0;
-          Ke = 0.17;
+          Ke = 1;
         }
         if((int)target_brightness == (int)base_brightness){
           passed_center = false;
           is_change = false;
+          Ke = 0;
         }
       }
     }
@@ -146,12 +143,20 @@ main_task(intptr_t exinf)
     /*走行モーター制御*/
     motor_drive_control(steering_amount, r_motor, l_motor, edge);
 
-    
     encoder_val = pup_motor_get_count(l_motor);
     if((encoder_val >= 720) && test_change == false){
       is_change = true;
       test_change = true;
     }
+
+/*
+    encoder_val = pup_motor_get_count(l_motor);
+    if(encoder_val >= 180 && change == false){
+      edge = RIGHT_EDGE;
+      change = true;
+    }
+*/
+
     dly_tsk(3900);  //delay 4msec
   }
 
