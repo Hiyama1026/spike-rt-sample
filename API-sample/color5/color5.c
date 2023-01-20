@@ -39,7 +39,7 @@ main_task(intptr_t exinf)
 
   col = pup_color_sensor_get_device(PBIO_PORT_ID_C);
 
-  pup_color_sensor_detectable_colors(9, ori_color);
+  pup_color_sensor_detectable_colors(11, ori_color);
 
   pup_color_hsv_t hsv;
   pup_color_hsv_t color;
