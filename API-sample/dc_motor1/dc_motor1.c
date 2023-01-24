@@ -26,8 +26,8 @@ main_task(intptr_t exinf)
 
   // Prepare the pybricks runtime for running a user program.
   // TODO: integrate pbsys_user_program_prepare() and wup_pybricks into one function. 
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks();
+  //pbsys_user_program_prepare(NULL);
+  //wup_pybricks();
 
   pbio_error_t r_err;
   pbio_error_t l_err;
@@ -64,6 +64,6 @@ main_task(intptr_t exinf)
     slp_tsk();
   }
 
-  pbsys_user_program_unprepare();
-  wup_pybricks();
+  //pbsys_user_program_unprepare();
+  //wup_pybricks();
 }

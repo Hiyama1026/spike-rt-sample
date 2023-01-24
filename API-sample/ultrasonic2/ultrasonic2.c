@@ -15,8 +15,8 @@ void
 main_task(intptr_t exinf)
 {
  
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks();
+  //pbsys_user_program_prepare(NULL);
+  //wup_pybricks();
 
   pbio_error_t err;
   pup_device_t *ult;
@@ -43,6 +43,6 @@ main_task(intptr_t exinf)
     //dly_tsk(1000000);  
   }
   
-  pbsys_user_program_unprepare();
-  wup_pybricks();
+  //pbsys_user_program_unprepare();
+  //wup_pybricks();
 }

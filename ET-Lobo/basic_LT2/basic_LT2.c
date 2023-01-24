@@ -53,8 +53,8 @@ main_task(intptr_t exinf)
 
   syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", 0);
 
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks(); 
+  //pbsys_user_program_prepare(NULL);
+  //wup_pybricks(); 
   
   dly_tsk(3000000);
 
@@ -100,6 +100,6 @@ main_task(intptr_t exinf)
     motor_drive_control(steering_amount, r_motor, l_motor);
   }
 
-  pbsys_user_program_unprepare();
-  wup_pybricks();
+  //pbsys_user_program_unprepare();
+  //wup_pybricks();
 }

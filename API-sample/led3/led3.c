@@ -24,7 +24,7 @@ extern const uint8_t pb_font_5x5[95][5];
 void
 main_task(intptr_t exinf)
 {
-  pbsys_user_program_prepare(NULL); // pbsys_processをユーザプログラム実行状態に遷移させる．
+  //pbsys_user_program_prepare(NULL); // pbsys_processをユーザプログラム実行状態に遷移させる．
   
   //pup_device_t *col;
   //col = pup_color_sensor_get_device(PBIO_PORT_ID_B);

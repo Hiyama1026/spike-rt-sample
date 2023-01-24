@@ -24,8 +24,8 @@ main_task(intptr_t exinf)
 
   syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", 0);
 
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks();
+  //pbsys_user_program_prepare(NULL);
+  //wup_pybricks();
 
   int count;
   while (1)
@@ -91,6 +91,6 @@ main_task(intptr_t exinf)
     }
   }
 
-  pbsys_user_program_unprepare();
-  wup_pybricks();
+  //pbsys_user_program_unprepare();
+  //wup_pybricks();
 }

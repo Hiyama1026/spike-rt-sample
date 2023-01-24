@@ -77,7 +77,7 @@ void pixel_on(void){
 void
 main_task(intptr_t exinf)
 {
-  pbsys_user_program_prepare(NULL); // pbsys_processをユーザプログラム実行状態に遷移させる．
+  //pbsys_user_program_prepare(NULL); // pbsys_processをユーザプログラム実行状態に遷移させる．
 
   hub_display_orientation(PBIO_SIDE_TOP);
 

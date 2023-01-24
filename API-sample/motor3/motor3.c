@@ -23,8 +23,8 @@ main_task(intptr_t exinf)
 
   syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", 0);
 
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks();
+  //pbsys_user_program_prepare(NULL);
+  //wup_pybricks();
 
   pbio_error_t err;
   pup_motor_t *motor;
@@ -69,6 +69,6 @@ main_task(intptr_t exinf)
       pup_color_sensor_light_off(col); 
     }
   }
-  pbsys_user_program_unprepare();
-  wup_pybricks();
+  //pbsys_user_program_unprepare();
+  //wup_pybricks();
 }

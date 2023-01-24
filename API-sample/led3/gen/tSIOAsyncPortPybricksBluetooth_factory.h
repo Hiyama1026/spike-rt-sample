@@ -1,0 +1,3 @@
+#ifndef tSIOAsyncPortPybricksBluetooth_FACTORY_H
+#define tSIOAsyncPortPybricksBluetooth_FACTORY_H
+#endif /* tSIOAsyncPortPybricksBluetooth_FACTORY_H */

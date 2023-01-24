@@ -13,8 +13,8 @@ main_task(intptr_t exinf)
   pup_device_t *col;
   syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", 0);
 
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks();
+  //pbsys_user_program_prepare(NULL);
+  //wup_pybricks();
   
   dly_tsk(3000000);
 

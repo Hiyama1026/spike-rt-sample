@@ -20,8 +20,8 @@ main_task(intptr_t exinf)
   pup_motor_t *l_motor;
   pup_device_t *col;
 
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks();
+  //pbsys_user_program_prepare(NULL);
+  //wup_pybricks();
   
   dly_tsk(3000000);
 
@@ -61,6 +61,6 @@ main_task(intptr_t exinf)
     slp_tsk();
   }
 
-  pbsys_user_program_unprepare();
-  wup_pybricks();
+  //pbsys_user_program_unprepare();
+  //wup_pybricks();
 }

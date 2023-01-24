@@ -95,8 +95,8 @@ main_task(intptr_t exinf)
 
   // Prepare the pybricks runtime for running a user program.
   // TODO: integrate pbsys_user_program_prepare() and wup_pybricks into one function. 
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks();
+  //pbsys_user_program_prepare(NULL);
+  //wup_pybricks();
 
   pbio_error_t err;
   pup_motor_t *motor;
@@ -174,11 +174,11 @@ main_task(intptr_t exinf)
         if(count == 10){         
           count = 0;
           pup_motor_stop(motor);
-          hub_display_text("10", 500, 250);
+          hub_display_text_scroll("10", 90);
           st = false;
           pup_ultrasonic_sensor_light_on(ult);
           pup_color_sensor_light_off(col);
-          pb_assert(pbio_light_matrix_clear(pbsys_hub_light_matrix));
+          //pb_assert(pbio_light_matrix_clear(pbsys_hub_light_matrix));
         }
         pup_ultrasonic_sensor_light_on(ult);
       }

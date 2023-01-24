@@ -25,8 +25,8 @@ main_task(intptr_t exinf)
 
   // Prepare the pybricks runtime for running a user program.
   // TODO: integrate pbsys_user_program_prepare() and wup_pybricks into one function. 
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks();
+  //pbsys_user_program_prepare(NULL);
+  //wup_pybricks();
 
   pbio_error_t err;
   pup_motor_t *motor;
@@ -77,6 +77,6 @@ main_task(intptr_t exinf)
          enc = pup_motor_get_count(motor);
        }
      }
-  pbsys_user_program_unprepare();
-  wup_pybricks();
+  //pbsys_user_program_unprepare();
+  //wup_pybricks();
 }

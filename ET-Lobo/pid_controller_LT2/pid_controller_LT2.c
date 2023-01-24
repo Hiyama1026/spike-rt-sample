@@ -34,8 +34,8 @@ main_task(intptr_t exinf)
 
   syslog(LOG_NOTICE, "Sample program starts (exinf = %d).", 0);
 
-  pbsys_user_program_prepare(NULL);
-  wup_pybricks();
+  //pbsys_user_program_prepare(NULL);
+  //wup_pybricks();
 
   
   
@@ -99,6 +99,6 @@ main_task(intptr_t exinf)
     dly_tsk(4000);  //delay 4msec
   }
 
-  pbsys_user_program_unprepare();
-  wup_pybricks();
+  //pbsys_user_program_unprepare();
+  //wup_pybricks();
 }
