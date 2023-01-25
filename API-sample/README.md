@@ -41,6 +41,15 @@ APIの挙動を確認するために作成したサンプルです。<br>注意�
 - ```pup_force_sensor_touched()```
 - ```pup_force_sensor_force()```
 - ```pup_force_sensor_distance()```
+### imu1.c
+IMUが検知した角速度の方向をディスプレイに表示する。
+- ```hub_imu_get_angular_velocity()```
+### imu2.c
+IMUが検知した温度をディスプレイに表示する。
+- ```hub_imu_get_temperature()```
+### imu3.c　(*)
+IMUが検知した加速度を出力する。
+- ```hub_imu_get_acceleration()```
 ### led1.c
 ディスプレイに指定した文字や図形を表示する。ピクセルと輝度を指定して点灯する。while文を一周するごとにハブ内蔵ライトの色を切り替える。
 - ```hub_display_orientation()```
