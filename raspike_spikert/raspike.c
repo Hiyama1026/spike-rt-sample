@@ -30,7 +30,7 @@ extern void wup_pybricks(void);
 
 #define DETECT_COM_FAIL_PERIOD 5000000
 
-#define RASPIKE_PORTNO  1
+#define RASPIKE_PORTNO  4
 
 int32_t color_sensor_mode = 0;
 int32_t color_sensor_change = 0;
@@ -662,8 +662,7 @@ receiver_task(intptr_t exinf) {
 void
 main_task(intptr_t exinf)
 {
-    //pbsys_user_program_prepare(NULL);
-    //wup_pybricks();
+    ER_UINT	ercd;
 
     /*get device pointers*/
     a_motor = pup_motor_get_device(PBIO_PORT_ID_A);
@@ -719,6 +718,11 @@ main_task(intptr_t exinf)
     pup_motor_set_speed(l_motor, 1000);
     pup_motor_set_speed(a_motor, 1000);
     
+    ercd = serial_opn_por(RASPIKE_PORTNO);
+    if (ercd < 0 && MERCD(ercd) != E_OBJ) {
+        syslog(LOG_ERROR, "%s (%d) reported by `serial_opn_por'.",
+               itron_strerror(ercd), SERCD(ercd));
+    }
     serial_ctl_por(RASPIKE_PORTNO, IOCTL_NULL); //フロー制御当を無効にする
 
     sta_cyc(NOTIFY_SENSOR_CYC);
@@ -728,7 +732,4 @@ main_task(intptr_t exinf)
     {
         slp_tsk();
     }
-
-    //pbsys_user_program_unprepare();
-    //wup_pybricks();
 }
