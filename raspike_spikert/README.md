@@ -7,7 +7,9 @@
 
 https://github.com/ETrobocon/RasPike/blob/master/spike/raspike_etrobo.py
 
-
+## 使用方法
+- 本プログラムの実行ファイルをdfuモードでHUBに書き込む．
+- raspberry側で制御アプリケーションを実行する．
 
 ## 接続関係の変更点
 
