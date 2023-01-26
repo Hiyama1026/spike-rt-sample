@@ -191,10 +191,12 @@ void
 notify_sensor_task(intptr_t exinf) {
     
     hub_button_t pressed, touched;
+    pup_color_hsv_t tmp_color_val, color_hsv;
+    pup_color_rgb_t color_rgb;
     static hub_button_t touch_sensor_value, pre_touch_sensor_value;
-    int button_command = 0;
+    int button_command = 0;        
     static int long_period_count, prev_button_command, x_ang_vel; 
-    int send_val;
+    int send_val, ambient, color_val, reflect, val;
     static uint8_t mscnt = 0;
     float hub_angular_velocity[3];
     SYSTIM tim;
@@ -203,7 +205,6 @@ notify_sensor_task(intptr_t exinf) {
     // RGBではない値が取れたりするので、その場合は次の周期で通知する
       
     if (color_sensor_mode == 1) {
-        int ambient;
         ambient = pup_color_sensor_ambient(col);
         if (ambient >= 0 && ambient <=100) {
             // ambient
@@ -211,8 +212,6 @@ notify_sensor_task(intptr_t exinf) {
         }
     }
     else if (color_sensor_mode == 2) {
-        pup_color_hsv_t tmp_color_val;
-        int color_val;
         tmp_color_val = pup_color_sensor_color(col, true);
 
 #if 1
@@ -302,7 +301,6 @@ notify_sensor_task(intptr_t exinf) {
     }
 
     else if (color_sensor_mode == 3) {
-        int reflect;
         reflect = pup_color_sensor_reflection(col);
         if (reflect >= 0 && reflect <= 100) {
             // Reflect
@@ -310,8 +308,6 @@ notify_sensor_task(intptr_t exinf) {
         }
     }
     else if (color_sensor_mode == 4) {
-       pup_color_rgb_t color_rgb;
-       pup_color_hsv_t color_hsv;
         //RGB
        color_rgb = pup_color_sensor_rgb(col);
        color_hsv = pup_color_sensor_hsv(col, true);
@@ -329,7 +325,6 @@ notify_sensor_task(intptr_t exinf) {
     // 超音波センサー
     
     if (ultrasonic_sensor_mode == 1) { 
-        int val;     
         val = pup_ultrasonic_sensor_distance(ult);
         val = val/10;
         if(val < 0){
@@ -351,13 +346,11 @@ notify_sensor_task(intptr_t exinf) {
     send_data(66, pup_motor_get_count(l_motor) * invert_L);
 
     // Gyro
-#if 1    
     //10msec周期なので、その分を加算する (??)
     hub_imu_get_angular_velocity(&hub_angular_velocity[0]);
     x_ang_vel = hub_angular_velocity[0];
     send_data(8,x_ang_vel);
     send_data(7, 0);     //キャリブレーション処理はAPIがない(?)ため0を出力している
-#endif
 
     //タッチセンサー
     hub_button_is_pressed(&touched);
@@ -624,7 +617,7 @@ receiver_task(intptr_t exinf) {
 #endif
 
             //ダミーリード
-            // cv = color_sensor.get();     //??
+            // cv = color_sensor.get();
             color_sensor_mode = value;      //color_sensor_mode切替え
             color_sensor_change = 1;        
         }
