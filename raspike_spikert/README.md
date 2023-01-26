@@ -7,13 +7,7 @@
 
 https://github.com/ETrobocon/RasPike/blob/master/spike/raspike_etrobo.py
 
-アプリケーションのクローンとビルド
 
-```
-$ cd spike-rt
-$ cd spike-rt-sample/raspike_spikert
-$ make
-```
 
 ## 接続関係の変更点
 
