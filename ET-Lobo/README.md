@@ -1,5 +1,5 @@
 # ET_Lobo
-ETロボコンの走行体(LEGO SPIKE)をSpike-rtの環境で動かすサンプルです.
+ETロボコンの走行体(LEGO SPIKE)をSpike-rtの環境で動かすサンプル.
 
 ## 各サンプルの機能概要
 ### basic_LT
