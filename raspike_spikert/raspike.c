@@ -30,7 +30,7 @@ extern void wup_pybricks(void);
 
 #define DETECT_COM_FAIL_PERIOD 5000000
 
-#define RASPIKE_PORTNO  1
+#define RASPIKE_PORTNO  4
 
 int32_t color_sensor_mode = 0;
 int32_t color_sensor_change = 0;
@@ -55,7 +55,7 @@ uint8_t motor_stop_a = 0;
 uint8_t motor_stop_r = 0;
 uint8_t motor_stop_l = 0;
 
-/*モーターのセットアップ時にl_motorの回転方向をPUP_DIRECTION_COUNTERCLOCKWISEとしているため全て1にしている*/
+/*モーターのセットアップ時にl_motorの回転方向を設定しているため，使用していない*/
 uint8_t invert_A = 1;
 uint8_t invert_R = 1;
 uint8_t invert_L = 1;
@@ -153,7 +153,7 @@ send_data(int cmd, int val)
     }
 #endif    
     serial_wri_dat(RASPIKE_PORTNO, buf, SEND_PACKET_SIZE-1);
-    dly_tsk(500);
+    //dly_tsk(500);
 }
 
 #define ACK_PACKET_SIZE (sizeof("<0000:000000"))
@@ -168,7 +168,7 @@ send_ack(int cmd)
     ack_buf[1] = '0' + cmd % 10; cmd /= 10;
 
     serial_wri_dat(RASPIKE_PORTNO, ack_buf, ACK_PACKET_SIZE-1);
-    dly_tsk(500);    
+    //dly_tsk(500);    
 }
 
 
@@ -340,17 +340,16 @@ notify_sensor_task(intptr_t exinf) {
     }
              
     // モーター出力
-    //オリジナルは出力結果からしてエンコーダー値を出力していると思われる
     send_data(64, pup_motor_get_count(a_motor) * invert_A);
     send_data(65, pup_motor_get_count(r_motor) * invert_R);
     send_data(66, pup_motor_get_count(l_motor) * invert_L);
 
     // Gyro
-    //10msec周期なので、その分を加算する (??)
+    //10msec周期なので、その分を加算する
     hub_imu_get_angular_velocity(&hub_angular_velocity[0]);
     x_ang_vel = hub_angular_velocity[0];
     send_data(8,x_ang_vel);
-    send_data(7, 0);     //キャリブレーション処理はAPIがない(?)ため0を出力している
+    send_data(7, 0);     //キャリブレーション処理はAPIがないため0を出力している
 
     //タッチセンサー
     hub_button_is_pressed(&touched);
@@ -486,12 +485,12 @@ receiver_task(intptr_t exinf) {
         while(1) {
             wait_read((char*)&data1, 1);
             num_command++;
-            if (data1 & 0x80U) {    //8bit目=1
+            if (data1 & 0x80U) {    
                 cmd = data1;
                 num_fail++;
                 continue;
             }
-            idx = cmd & 0x7FU;      //8bit目以外
+            idx = cmd & 0x7FU;     
 
             wait_read((char*)&data2, 1);
 
@@ -502,8 +501,8 @@ receiver_task(intptr_t exinf) {
                 continue;
             }
             cmd_id = idx;
-            value = ((data1 & 0x1F) << 7) | data2;      //(data1 & 0x1F)=data1下から5bit分
-            if (data1 & 0x20U)                          //data1の6bit目が1
+            value = ((data1 & 0x1F) << 7) | data2;      
+            if (data1 & 0x20U)                          
               value = value * (-1);
               //syslog(LOG_NOTICE, "idx = %d: %d:%d %d", idx, data1, data2, value);
             break;                
@@ -662,8 +661,7 @@ receiver_task(intptr_t exinf) {
 void
 main_task(intptr_t exinf)
 {
-    //pbsys_user_program_prepare(NULL);
-    //wup_pybricks();
+    ER_UINT	ercd;
 
     /*get device pointers*/
     a_motor = pup_motor_get_device(PBIO_PORT_ID_A);
@@ -719,6 +717,11 @@ main_task(intptr_t exinf)
     pup_motor_set_speed(l_motor, 1000);
     pup_motor_set_speed(a_motor, 1000);
     
+    ercd = serial_opn_por(RASPIKE_PORTNO);
+    if (ercd < 0 && MERCD(ercd) != E_OBJ) {
+        syslog(LOG_ERROR, "%s (%d) reported by `serial_opn_por'.",
+               itron_strerror(ercd), SERCD(ercd));
+    }
     serial_ctl_por(RASPIKE_PORTNO, IOCTL_NULL); //フロー制御当を無効にする
 
     sta_cyc(NOTIFY_SENSOR_CYC);
@@ -728,7 +731,4 @@ main_task(intptr_t exinf)
     {
         slp_tsk();
     }
-
-    //pbsys_user_program_unprepare();
-    //wup_pybricks();
 }

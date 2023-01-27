@@ -7,11 +7,25 @@
 
 https://github.com/ETrobocon/RasPike/blob/master/spike/raspike_etrobo.py
 
+<<<<<<< HEAD
+# ビルド及び実行
+
+## アプリケーションのビルド
+
+```
+$ cd <spike-rtのフォルダ>
+$ cd spike-rt-sample/raspike_spikert
+$ make
+```
+=======
 ## 使用方法
 - 本プログラムの実行ファイルをdfuモードでHUBに書き込む．
 - raspberry側で制御アプリケーションを実行する．
+>>>>>>> 3207652ea549d4cbec861a2eeba5aa02ba343c39
 
-## 接続関係の変更点
+## ハブへのセンサー・モータの接続
+
+FポートとDポートはオリジナルのRasPikeの接続から入れ替える．
 
 - Raspberry PiとSPIKEの接続
 	- アームモータ   : A
@@ -21,7 +35,23 @@ https://github.com/ETrobocon/RasPike/blob/master/spike/raspike_etrobo.py
 	- 超音波センサー : F -> D
 	- serial通信     : D -> F
 
-## Raspberry Pi -> SPIKE 送信
+## 不具合の回避
+以下の変更を行い，実行中にHUBの電源が落ちないように設定する．
+- `spike-rt\external\libpybricks\lib\pbio\platform\prime_hub_spike-rt`の18行目を下記のように変更する．
+```
+#define PBSYS_CONFIG_BLUETOOTH_ADVERTISE_WHILE_USER_PROGRAM_RUNNING (0)
+```
+
+
+## 実行
+
+オリジナルと同様に起動するとserialを使用してRaspberry Piと通信を開始する．
+コンソール出力は，USB経由の仮想COMポートに出力される．
+
+
+# 処理内容
+
+## 受信処理 : Raspberry Pi -> SPIKE 
 
 - データを受信するとパケット解析を開始
 
@@ -29,7 +59,7 @@ https://github.com/ETrobocon/RasPike/blob/master/spike/raspike_etrobo.py
 	- 受信タスク
 	- オリジナル関数 async def receiver():
 
-## SPIKE -> Raspberry Pi 送信
+## 送信処理 : SPIKE -> Raspberry Pi 
 
 - 10msec毎に送信
 - 100msec毎に送信
@@ -38,7 +68,7 @@ https://github.com/ETrobocon/RasPike/blob/master/spike/raspike_etrobo.py
 	- 送信タスク
 	- オリジナル関数 sync def notifySensorValues():
 
-## 注意点
+# 設計メモ
 
 - 送信するカラーコードはEV3のカラーコードに合わせた．
 	- BROWNは H=40, S=100, V=35 で指定した．
@@ -49,7 +79,7 @@ https://github.com/ETrobocon/RasPike/blob/master/spike/raspike_etrobo.py
 - フロー制御を有効にしていると，raspberryから17や19のデータを受信したときに不具合を起こすことが確認されたため，フロー制御を無効化している(722行目)．
 - モーターのPWM値を指定するAPIが公式に追加されていないため，```pup_motor_set_duty_limit()```によりPWM値を指定している．
 
-## 検証を通して分かったこと
+# 検証を通して分かったこと
 
 - RasPike環境を用いたときとSpike-RTを使用したときで，カラーセンサーが返すReflect値が異なる．
 	- どちらも機能的にはReflect値を出力しているような振る舞いをする．
