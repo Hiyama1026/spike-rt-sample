@@ -25,7 +25,7 @@
 #endif /* TASK_PORTID */
 
 #ifndef STACK_SIZE
-#define	STACK_SIZE		(4096*4)		/* タスクのスタックサイズ */
+#define	STACK_SIZE		(4096)		/* タスクのスタックサイズ */
 #endif /* STACK_SIZE */
 
 /*

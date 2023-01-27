@@ -13,9 +13,6 @@
 #define WHITE_BRIGHTNESS  (73)
 #define BLACK_BRIGHTNESS  (4)
 
-/*基本走行スピード*/
-#define BACE_SPEED        (50)
-
 /*ライントレースエッジ切り替え*/
 #define LEFT_EDGE         (-1)
 #define RIGHT_EDGE        (1)
@@ -23,7 +20,7 @@
 /*PIDパラメータ*/
 #define KP (0.95)
 #define KI (0.01)
-#define KD (0.19)
+#define KD (0.04)
 
 /*
  *  ターゲットに依存する可能性のある定数の定義

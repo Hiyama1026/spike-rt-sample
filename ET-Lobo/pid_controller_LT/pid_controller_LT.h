@@ -23,7 +23,7 @@
 /*PIDパラメータ*/
 #define KP (0.95)
 #define KI (0.01)
-#define KD (0.19)
+#define KD (0.05)
 
 /*
  *  ターゲットに依存する可能性のある定数の定義

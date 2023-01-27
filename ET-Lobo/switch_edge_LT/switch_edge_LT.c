@@ -7,7 +7,7 @@
 
 //#include <pbsys/user_program.h>
 
-extern int base_speed = 5;
+extern int base_speed = 50;
 
 static void motor_drive_control(int steering_amount, int R_motor_pt, int L_motor_pt, int edge){
   
