@@ -39,7 +39,7 @@ FポートとDポートはオリジナルのRasPikeの接続から入れ替え�
 
 ## 不具合の回避
 以下の変更を行い，実行中にHUBの電源が落ちないように設定する．
-- `spike-rt\external\libpybricks\lib\pbio\platform\prime_hub_spike-rt`の18行目を下記のように変更する．
+- [spike-rt/external/libpybricks/lib/pbio/platform/prime_hub_spike-rt/pbsysconfig.h](https://github.com/spike-rt/pybricks-micropython/blob/31d98c66dde2d935c30d2ae68c0c81c9de8831ca/lib/pbio/platform/prime_hub_spike-rt/pbsysconfig.h)の`PBSYS_CONFIG_BLUETOOTH_ADVERTISE_WHILE_USER_PROGRAM_RUNNING`を0に変更する．
 ```
 #define PBSYS_CONFIG_BLUETOOTH_ADVERTISE_WHILE_USER_PROGRAM_RUNNING (0)
 ```
