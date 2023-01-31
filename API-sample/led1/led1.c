@@ -48,7 +48,6 @@ void light_on(int cnt){
     }
     else if(cnt == 6) {
       hub_light_on_color(PBIO_COLOR_BLUE);
-      cnt = -1;
     }   
 }
 
@@ -108,6 +107,7 @@ main_task(intptr_t exinf)
 
     light_on(count);
     count++;
+    if(count == 7)  count = 0;
   }
 }
 
