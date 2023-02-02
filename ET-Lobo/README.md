@@ -27,8 +27,7 @@ ETロボコンの走行体(LEGO SPIKE)をSpike-rtの環境で動かすサンプ�
 ### go_straight
 - 走行体を```pup_motor_set_speed()```で直進させる．
 ### dc_motor_straight
-- 走行体をDCモーターで直進させる．
-- DCモーターで制御するための関数の動作・挙動の確認に使用した．
+- 走行体をPWM値指定で直進させる．
 
 ## その他
 - ETロボコン用環境(RasPike)について、詳しくは[こちら](https://github.com/ETrobocon/RasPike)．
