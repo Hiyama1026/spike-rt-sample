@@ -495,7 +495,7 @@ receiver_task(intptr_t exinf) {
             wait_read((char*)&data2, 1);
 
             num_command++;
-            if (data2 & 0x80U) {    //修正
+            if (data2 & 0x80U) {
                 cmd = data2;
                 num_fail++;
                 continue;
