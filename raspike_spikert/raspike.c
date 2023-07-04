@@ -495,7 +495,7 @@ receiver_task(intptr_t exinf) {
             wait_read((char*)&data2, 1);
 
             num_command++;
-            if (data1 & 0x80U) {  
+            if (data2 & 0x80U) {    //修正
                 cmd = data2;
                 num_fail++;
                 continue;
@@ -521,22 +521,17 @@ receiver_task(intptr_t exinf) {
 
         if (cmd_id == 1) {
             if ((value <= 100) && (value >= -100)) {
-                pup_motor_set_speed(a_motor, 1000);
-                pup_motor_set_duty_limit(a_motor, value);
+                 pup_motor_set_power(a_motor, value);
             }
         }
         else if (cmd_id == 2) {
             if ((value <= 100) && (value >= -100)) {
-                pup_motor_set_speed(r_motor, 1000);
-                pup_motor_set_duty_limit(r_motor, value);
-                //syslog(LOG_NOTICE, "r : value = %d", value);
+                pup_motor_set_power(r_motor, value);
             }
         }
         else if (cmd_id == 3) {
             if ((value <= 100) && (value >= -100)) {
-                pup_motor_set_speed(l_motor, 1000);
-                pup_motor_set_duty_limit(l_motor, value);
-                //syslog(LOG_NOTICE, "l : value = %d", value);
+                pup_motor_set_power(l_motor, value);
             }
         }
         else if (cmd_id == 5) {
@@ -709,13 +704,6 @@ main_task(intptr_t exinf)
 
     hub_imu_init();
     dly_tsk(1000000);
-
-    pup_motor_set_duty_limit(r_motor, 0);
-    pup_motor_set_duty_limit(l_motor, 0);
-    pup_motor_set_duty_limit(a_motor, 0);
-    pup_motor_set_speed(r_motor, 1000);
-    pup_motor_set_speed(l_motor, 1000);
-    pup_motor_set_speed(a_motor, 1000);
     
     ercd = serial_opn_por(RASPIKE_PORTNO);
     if (ercd < 0 && MERCD(ercd) != E_OBJ) {
