@@ -89,6 +89,20 @@ static pup_color_hsv_t detect_color_for_lego_official[] = {
 };
 #endif
 
+#if 0
+//spike-rt default detectable color + brack
+static pup_color_hsv_t detect_spike_rt_default[] = {
+    { PBIO_COLOR_HUE_RED, 0b01100100, 0b01100100 },
+    { PBIO_COLOR_HUE_YELLOW, 0b01100100, 0b01100100 },
+    { PBIO_COLOR_HUE_GREEN, 0b01100100, 0b01100100 },
+    { PBIO_COLOR_HUE_BLUE, 0b01100100, 0b01100100 }, 
+    {0, 0, 0b01100100},     //WHITE
+    {0, 0, 0b1010},         //BRACK
+    {0, 0, 0} ,             //NON
+};
+#endif
+
+#if 1
 static pup_color_hsv_t detect_color_for_EV3[] = {
     { PBIO_COLOR_HUE_RED, 0b01100100, 0b01100100 },
     { PBIO_COLOR_HUE_YELLOW, 0b01100100, 0b01100100 },
@@ -99,6 +113,7 @@ static pup_color_hsv_t detect_color_for_EV3[] = {
     {0, 0, 0b1010},                             //BRACK
     {0, 0, 0} ,                                 //NON
 };
+#endif
 
 static uint8_t text_ET[1][25] = {
   {
@@ -247,6 +262,37 @@ notify_sensor_task(intptr_t exinf) {
                 color_val = -1;
         }
     
+#endif
+
+#if 0
+    //for spike-rt_default + brack 
+    switch(tmp_color_val.h){
+        case 0:            
+            if(tmp_color_val.s == 100){         //RED (PBIO_COLOR_HUE_RED=0)
+                color_val = 1;
+            }
+            else if(tmp_color_val.v == 100){    //WHITE
+                color_val = 5;
+            }
+            else if(tmp_color_val.v == 10){     //BRACK
+                color_val = 6;
+            }
+            else{
+                color_val = 0;                  //NONE
+            }
+            break;
+        case PBIO_COLOR_HUE_YELLOW:
+            color_val = 2;
+            break;
+        case PBIO_COLOR_HUE_GREEN:
+            color_val = 3;
+            break;
+        case PBIO_COLOR_HUE_BLUE:
+            color_val = 4;
+            break;
+        default:
+            color_val = -1;      //err
+    }
 #endif
 
 #if 0      
