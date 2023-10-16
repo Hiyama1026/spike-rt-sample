@@ -19,15 +19,8 @@ ETロボコンの走行体(LEGO SPIKE)をSpike-rtの環境で動かすサンプ�
 - 走行体をPID制御でライントレースさせる．
 - pid_controller_LTを```pup_motor_set_speed()```で制御するように書き換えたもの．
 - 本プログラムの作成当時ではモーターに走行体の重さによる負荷がかかると速度が安定しない問題が発生しているため，実現が難しいと思われる．
-### switch_edge_LT
-- 走行中に走行エッジを切り替える．
-- エンコーダー値を取得し, 左車輪が3回転したら走行エッジを左から右に切り替える．
-- ハブに輝度のターゲット値を表示する．
-- PWM値指定によりモーターを駆動する．
 ### go_straight
 - 走行体を```pup_motor_set_speed()```で直進させる．
-### dc_motor_straight
-- 走行体をPWM値指定で直進させる．
 
 ## その他
 - ETロボコン用環境(RasPike)について、詳しくは[こちら](https://github.com/ETrobocon/RasPike)．
