@@ -20,12 +20,6 @@ make
 ## 注意事項
 - このサンプルは[spike-rt](https://github.com/spike-rt/spike-rt)の直下に展開すると実行することができます。
 - 1回目のビルド時にエラーが出るかもしれません。その場合はもう一度ビルドをしてみてください。2回目のビルドで問題なく実行できるようになります。
-- spike-rtのバージョンによってはビルド時にbluetooth.oが無いと言われる可能性があります．
-    - Makefileに以下の修正をして問題を回避できます．
-    ```
-    ALL_LIBS = -lkernel $(LIBS) -lkernel
-    ```
-    - 一部アプリは上記の修正済みです．
 
 ## 動作確認済みのspike-rtバージョン(2023/07/04)
 - raspike_spikrtのみ，新しいspike-rtのバージョンに対応しました．
@@ -35,7 +29,7 @@ make
 - raspike_spikert以外のプログラム
     - コミットID：e663a2d2ba16422df34efd9ad36737ec75ad4d0d
 
-- raspike_spikert以外のプログラムもアプリのMakefileを以下のように変更するとraspike_spikrtと同じバージョンでビルドできるはずです（未確認）．
+- raspike_spikert以外のプログラムもアプリのMakefileを以下のように変更する事により，raspike_spikrtの動作確認済みバージョンと同じバージョンのspike-rtでビルドできるはずです（未確認）．
 ```
 <変更前>
 ALL_LIBS = -lkernel $(LIBS)
