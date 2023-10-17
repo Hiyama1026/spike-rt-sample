@@ -21,9 +21,9 @@ main_task(intptr_t exinf)
 
   while(1){
     hub_imu_get_acceleration(&hub_accel[0]);
-    x_accel = hub_accel[0];
-    y_accel = hub_accel[1];
-    z_accel = hub_accel[2];
+    x_accel = (int)hub_accel[0];
+    y_accel = (int)hub_accel[1];
+    z_accel = (int)hub_accel[2];
     
     syslog(LOG_NOTICE, "acceleration : X = %d, Y = %d, Z = %d.", x_accel, y_accel, z_accel);
     dly_tsk(300000);
