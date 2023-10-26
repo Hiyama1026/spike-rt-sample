@@ -2,27 +2,18 @@
 ETロボコンの走行体(LEGO SPIKE)をSpike-rtの環境で動かすサンプル.
 
 ## 各サンプルの機能概要
-### basic_LT
-- 走行体をP制御でライントレースさせる．
-- RasPike環境用に用意されたサンプル([sample_c5](https://github.com/ETrobocon/RasPike/tree/master/sdk/workspace/sample_c5))を参考にして作成した．
-- モーターの速度制御は```pup_motor_set_duty_limit()```でPWM値を指定することにより行う．
-### basic_LT2
-- 走行体をP制御でライントレースさせる．
-- basic_LTを```pup_motor_set_speed()```で速度指定により制御するよう書き換えたもの．
-- 本プログラムの作成当時ではモーターに走行体の重さによる負荷がかかると速度が安定しない問題が発生しているため，実現が難しいと思われる．
+
 ### brightness_measure
 - カラーセンサーで輝度を測定してディスプレイに表示する．
-### pid_controller_LT
+### pid_controller
 - 走行体をPID制御でライントレースさせる．
 - PWM値指定によりモーターを駆動する．
-### pid_controller_LT2
-- 走行体をPID制御でライントレースさせる．
-- pid_controller_LTを```pup_motor_set_speed()```で制御するように書き換えたもの．
-- 本プログラムの作成当時ではモーターに走行体の重さによる負荷がかかると速度が安定しない問題が発生しているため，実現が難しいと思われる．
 ### go_straight
 - 走行体を```pup_motor_set_speed()```で直進させる．
 
 ## その他
+- モータに負荷(走行体の車重)がかかる状態で```pup_motor_set_speed()```を使用すると，モータの回転速度が安定しない現象を確認している．
+    - ライントレースサンプルにはPWM値を指定する関数```pup_motor_set_power()```を使用している．
 - ETロボコン用環境(RasPike)について、詳しくは[こちら](https://github.com/ETrobocon/RasPike)．
 - 走行体は、[組立図](https://drive.google.com/file/d/17FyQBsuuXrV4BK-96fgQJy-Ou4NvqLi7/view?usp=sharing)を元に組み立てた．
 - プログラム作成の際にはETロボコン2022のサンプルコースを使用した．
