@@ -7,6 +7,14 @@ APIの挙動を確認するために作成したサンプルです。<br>注意�
 バッテリーの電流・電圧を取得して表示する。
 - ```hub_battery_get_current()```
 - ```hub_battery_get_voltage()```
+### bluetooth1.c
+bluetooth経由で文字列の送受信を行う。</br>
+コンソールは[Pybricks](https://pybricks.com/)のコンソールを使用する。</br>
+Hubの電源投入後にPybricksのBluetoothボタンをクリックし，接続する。</br>
+（Hubが接続待ち状態のときには「READY」を表示し，接続が完了したらスマイルマークを表示する）
+- ```serial_opn_por()```
+- ```serial_rea_dat()```
+- ```serial_wri_dat()```
 ### button1.c
 押したボタンをディスプレイに表示する。
 - ```hub_button_is_pressed()```
