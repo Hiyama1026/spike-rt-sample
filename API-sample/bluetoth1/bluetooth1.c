@@ -14,7 +14,48 @@
 #include "spike/hub/button.h"
 #include "spike/hub/display.h"
 #include "serial/serial.h"
-//#include <pbsys/user_program.h>
+
+ER ercd_op, ercd_wr, ercd_re;
+
+void
+wait_for_connect (void)
+{
+  hub_display_off();
+
+  act_tsk(DISPLAY_TASK);
+  ercd_op = serial_opn_por(SIO_BLUETOOTH_PORTID);
+  ter_tsk(DISPLAY_TASK);
+
+  hub_display_off();
+  hub_display_image(img_smile);
+
+  return;
+}
+
+void
+display_task(intptr_t exinf)
+{
+  while (1)
+  {
+    hub_display_text_scroll("READY", 100);
+    dly_tsk(100*1000);
+  } 
+}
+
+void
+check_task(intptr_t exinf)
+{
+  bool is_connected;
+
+  while (1)
+  {
+    hub_bluetooth_is_connected(&is_connected);
+    if (!is_connected)
+      wait_for_connect();
+
+    dly_tsk(500*1000);
+  } 
+}
 
 /*
  * Main Task
@@ -23,15 +64,10 @@
 void
 main_task(intptr_t exinf)
 {
-  ER ercd_op, ercd_wr, ercd_re;
   const char init_msg[] = "\nWrite data via Bluetooth.\n";
 
-  act_tsk(DISPLAY_TASK);
-  ercd_op = serial_opn_por(SIO_BLUETOOTH_PORTID);
-  ter_tsk(DISPLAY_TASK);
+  wait_for_connect();
 
-  hub_display_off();
-  hub_display_image(img_smile);
   dly_tsk(1*1000*1000);
 
   ercd_wr = serial_wri_dat(SIO_BLUETOOTH_PORTID, init_msg, sizeof(init_msg));
@@ -41,9 +77,12 @@ main_task(intptr_t exinf)
   syslog(LOG_NOTICE, "open (err = %d).", ercd_op);
   syslog(LOG_NOTICE, "write (err = %d).", ercd_wr);
 
+  act_tsk(CHECK_TASK);
+
   while (1)
   {
     char input[3];
+    bool is_connected;
 
     const char write_msg[] = "\nInput 3 characters to send and display.\nInput : ";
 
@@ -55,15 +94,6 @@ main_task(intptr_t exinf)
     hub_display_text_scroll(input, 150);
     dly_tsk(500*1000);
     hub_display_image(img_smile);
-  }
-}
 
-void
-display_task(intptr_t exinf)
-{
-  while (1)
-  {
-    hub_display_text_scroll("READY", 100);
-    dly_tsk(100*1000);
-  } 
+  }
 }
