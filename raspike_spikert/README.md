@@ -1,7 +1,6 @@
 # RasPike互換モジュール
 
 - このプロジェクトはRasPikeで使用されるLEGO SPIKEで実行するエージェントプログラムをSPIKE-RTに移植したものである．
-- アップデート情報：[update_info.md](./update_info.md)
 
 ## オリジナルのエージェントプログラム
 
