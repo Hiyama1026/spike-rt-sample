@@ -19,7 +19,7 @@ if (data2 & 0x80U) {    //修正
 
 - Makefileを修正してビルドエラーをエスケープ
 ```
-ALL_LIBS = -lkernel $(LIBS) -lkernel
+ALL_LIBS = -lkernel $(LIBS)
 ```
 
 - モーターの駆動APIを`pup_motor_set_power()`に変更
