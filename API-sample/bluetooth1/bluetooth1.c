@@ -21,7 +21,7 @@ void
 wait_for_connect (void)
 {
   hub_display_off();
-
+  
   act_tsk(DISPLAY_TASK);
   ercd_op = serial_opn_por(SIO_BLUETOOTH_PORTID);
   ter_tsk(DISPLAY_TASK);
@@ -37,7 +37,7 @@ display_task(intptr_t exinf)
 {
   while (1)
   {
-    hub_display_text_scroll("READY", 100);
+    hub_display_text_scroll("READY", 100);  //出力後休止状態に
     dly_tsk(100*1000);
   } 
 }
