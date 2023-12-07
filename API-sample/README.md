@@ -1,6 +1,6 @@
 # API_sample
 ## 概要
-APIの挙動を確認するために作成したサンプルです．<br>注意：(*)が付いたサンプルはサンプルはログの出力が必要です．
+APIの挙動を確認するために作成したサンプル．<br>注意：(*)が付いたサンプルはサンプルはログの出力が必要．
 
 ## 各サンプルの概要と使用する主なAPI
 ### battery1.c　(*)
@@ -104,21 +104,23 @@ hub_display_char()で文字を出力する．
 - ```pup_ultrasonic_sensor_light_off()```
 ### ultrasonic2.c
 超音波を検出したらライトを点灯する．
+- ```pup_ultrasonic_sensor_presence()```
 - ```pup_ultrasonic_sensor_light_on()```
 
 ### multitask1.c
 複数タスクの生成・扱い方の確認や，優先度ベーススケジューリングの確認など．</br>
 タスクは優先度順に実行される．</br>
 同一優先度内ではFIFO順．</br>
+遅延操作にdly_tsk()を使用すると自タスクが待ち状態に入ってしまうため，実行状態を保持したまま時間経過を待つ関数busy_wait()を実装し，使用する．</br>
+busy_wait()にはシステム時刻（get_tim()で取得）を使用．</br>
 - ```CRE_TSK()```
+- ```get_tim()```
 
 ### multitask2.c
 周期関数の使用方法の確認など．</br>
 高優先度の周期関数を使用してモータの回転方向を切り替える．</br>
-遅延操作にdly_tsk()を使用すると自タスクが待ち状態に入ってしまうため，実行状態を保持したまま時間経過を待つ関数busy_wait()を実装し，使用する．
-busy_wait()にはシステム時刻（get_tim()で取得）を使用．
+遅延操作はmultitask1と同様にbusy_wait()を使用．</br>
 - ```CRE_CYC()```
-- ```get_tim()```
 
 ### multitask3.c　（同期・通信機能）
 セマフォの使用方法の確認など．</br>
