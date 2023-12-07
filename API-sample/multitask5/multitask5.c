@@ -65,7 +65,6 @@ motor_task(intptr_t exinf)
   struct data_packet *receive_pkt;
   pbio_error_t m_err;
 
-
   while (1) {
     rcv_dtq(MOTOR_DTQ,  &rev_datta_pkt);    // データキュー受信待ち
     receive_pkt = rev_datta_pkt;
@@ -73,12 +72,10 @@ motor_task(intptr_t exinf)
     if (!receive_pkt->is_setup)
       m_err = pup_motor_setup(receive_pkt->motor, PUP_DIRECTION_CLOCKWISE, true);
 
-    if ((receive_pkt->idx % 2) == 0){
+    if ((receive_pkt->idx % 2) == 0)
       pup_motor_set_speed(receive_pkt->motor, receive_pkt->speed);
-    } 
-    else {
+    else 
       pup_motor_brake(receive_pkt->motor);
-    }
   }
 }
 
