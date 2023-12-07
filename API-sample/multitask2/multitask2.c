@@ -70,6 +70,7 @@ main_task(intptr_t exinf)
   sta_cyc(CTRL_CYC);      //タイマ起動
   syslog(LOG_NOTICE, "act timer.");
   
+  hub_display_image(img_smile);
   while (1)
   {
     slp_tsk();
