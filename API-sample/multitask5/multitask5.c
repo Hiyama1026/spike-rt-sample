@@ -80,7 +80,7 @@ motor_task(intptr_t exinf)
 }
 
 void
-but_cyc_handler(intptr_t exinf)
+but_cyc_handler(intptr_t exinf)   //1ms周期
 {
   struct data_packet send_pkt;
   static hub_button_t pressed_ptn, pre_ptn;

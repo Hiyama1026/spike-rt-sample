@@ -5,6 +5,7 @@
  */
 
 #define MAIN_PRIORITY	5		/* メインタスクの優先度 */
+#define BUTTON_CYC_PRIORITY	5		/* 周期ハンドラの優先度 */
 #define MOTOR_PRIORITY	4		/* モータタスクの優先度 */
 
 /*
