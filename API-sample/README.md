@@ -94,7 +94,7 @@ hub_display_char()で文字を出力する．
 - ```pup_color_sensor_light_on()```
 - ```pup_color_sensor_light_off()```
 ### motor4.c
-メインタスクから関数呼び出しでモーターを駆動する．
+フォースセンサが押された力に応じてモータを駆動する．
 ### ultrasonic1.c　(*)
 超音波センサが物体を検知したら、物体までの距離に応じて超音波センサの各ライトを点灯する．物体までの距離(mm)を表示する．
 - ```pup_ultrasonic_sensor_get_device()```
