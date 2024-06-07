@@ -19,7 +19,7 @@ struct data_packet
 {
   pup_motor_t *motor;
   int speed;
-  int idx;
+  bool rum_mode;
   bool is_setup;
 };
 
@@ -27,12 +27,13 @@ struct data_packet
 void
 create_pkt (struct data_packet *entry, int dev)
 {
-  static int a_cnt, b_cnt;
+  static bool run_motorA = true, run_motorB = true;
   static bool a_first = true, b_first = true;
 
   if (dev == MOTOR_A) {
-    entry->motor = pup_motor_get_device(PBIO_PORT_ID_A);
-    entry->idx = a_cnt;
+    entry->motor = pup_motor_get_device(PBIO_PORT_ID_C);
+    entry->rum_mode = run_motorA;
+
     if (a_first) {
       entry->is_setup = false;
       a_first = false;
@@ -40,11 +41,13 @@ create_pkt (struct data_packet *entry, int dev)
     else
       entry->is_setup = true;
 
-    if (a_cnt++ == 10)  a_cnt = 0;
+    if (run_motorA)  run_motorA = false;
+    else  run_motorA = true;
   }
   else {
-    entry->motor = pup_motor_get_device(PBIO_PORT_ID_B);
-    entry->idx = b_cnt;
+    entry->motor = pup_motor_get_device(PBIO_PORT_ID_D);
+    entry->rum_mode = run_motorB;
+
     if (b_first) {
       entry->is_setup = false;
       b_first = false;
@@ -52,7 +55,8 @@ create_pkt (struct data_packet *entry, int dev)
     else
       entry->is_setup = true;
 
-    if (b_cnt++ == 11)  b_cnt = 0;
+    if (run_motorB)  run_motorB = false;
+    else  run_motorB = true;
   }
 
   entry->speed = 800;
@@ -72,7 +76,7 @@ motor_task(intptr_t exinf)
     if (!receive_pkt->is_setup)
       m_err = pup_motor_setup(receive_pkt->motor, PUP_DIRECTION_CLOCKWISE, true);
 
-    if ((receive_pkt->idx % 2) == 0)
+    if (receive_pkt->rum_mode)
       pup_motor_set_speed(receive_pkt->motor, receive_pkt->speed);
     else 
       pup_motor_brake(receive_pkt->motor);
