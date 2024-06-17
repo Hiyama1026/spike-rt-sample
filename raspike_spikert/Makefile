@@ -154,6 +154,11 @@ TARGETDIR = $(SRCDIR)/target/$(TARGET)
 include $(TARGETDIR)/Makefile.target
 
 #
+#  DFUの設定ファイルのインクルード
+#
+include ../Makefile_dfu.inc
+
+#
 #  TECS生成ファイルのディレクトリの定義
 #
 TECSGENDIR = ./gen

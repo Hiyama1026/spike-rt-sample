@@ -16,7 +16,7 @@
 
 extern const uint8_t pb_font_5x5[95][5];
 
-static uint8_t ex[1][25] = {
+static uint8_t example_image[1][25] = {
   {
     0b0000000, 0b0000000, 0b1100100, 0b0000000, 0b0000000,
     0b0000000, 0b1100100, 0b0000000, 0b1100100, 0b0000000,
@@ -28,27 +28,44 @@ static uint8_t ex[1][25] = {
 
 
 void light_on(int cnt){
-  if(cnt == 0) {
-      hub_light_on_color(PBIO_COLOR_CYAN);
+    switch(cnt){
+      case 0:
+        hub_light_on_color(PBIO_COLOR_RED);
+        break;
+      case 1:
+        hub_light_on_color(PBIO_COLOR_BROWN);
+        break;
+      case 2:
+        hub_light_on_color(PBIO_COLOR_ORANGE);
+        break;
+      case 3:
+        hub_light_on_color(PBIO_COLOR_YELLOW);
+        break;
+      case 4:
+        hub_light_on_color(PBIO_COLOR_GREEN);
+        break;
+      case 5:
+        hub_light_on_color(PBIO_COLOR_SPRING_GREEN);
+        break;
+      case 6:
+        hub_light_on_color(PBIO_COLOR_CYAN);
+        break;
+      case 7:
+        hub_light_on_color(PBIO_COLOR_BLUE);
+        break;
+      case 8:
+        hub_light_on_color(PBIO_COLOR_VIOLET);
+        break;
+      case 9:
+        hub_light_on_color(PBIO_COLOR_MAGENTA);
+        break;
+      case 10:
+        hub_light_on_color(PBIO_COLOR_GRAY);
+        break;
+      case 11: 
+        hub_light_on_color(PBIO_COLOR_WHITE);
+        break;
     }
-    if(cnt == 1) {
-      hub_light_on_color(PBIO_COLOR_ORANGE);
-    }
-    else if(cnt == 2) {
-      hub_light_on_color(PBIO_COLOR_MAGENTA);
-    }
-    else if(cnt == 3) {
-      hub_light_on_color(PBIO_COLOR_YELLOW);
-    }
-    else if(cnt == 4) {
-      hub_light_on_color(PBIO_COLOR_RED);
-    }
-    else if(cnt == 5) {
-      hub_light_on_color(PBIO_COLOR_GREEN);
-    }
-    else if(cnt == 6) {
-      hub_light_on_color(PBIO_COLOR_BLUE);
-    }   
 }
 
 void pixel_on(void){
@@ -96,9 +113,9 @@ main_task(intptr_t exinf)
   {
     hub_display_off();
     dly_tsk(500000);
-    hub_display_text("HELLO", 900, 500);
-    hub_display_text_scroll(" SPIKE-RT", 90);
-    hub_display_image(ex);
+    hub_display_text("HELLO", 500, 300);
+    hub_display_text_scroll(" SPIKE-RT", 60);
+    hub_display_image(example_image);
     dly_tsk(1000000);
     pixel_on();
     dly_tsk(1000000);
@@ -107,7 +124,7 @@ main_task(intptr_t exinf)
 
     light_on(count);
     count++;
-    if(count == 7)  count = 0;
+    if(count == 12)  count = 0;
   }
 }
 

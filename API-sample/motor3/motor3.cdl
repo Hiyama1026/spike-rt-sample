@@ -129,14 +129,15 @@ cell tSerialAsyncPort SerialPortTest1 {
  *
  *  システムログタスクを外す場合には，以下のセルの組上げ記述を削除すれ
  *  ばよい．
+ *  TODO: LogTaskの優先度を上げても，USB経由での出力がうまく動作するようにする．
  */
 cell tLogTask LogTask {
-  priority  = 3;          /* システムログタスクの優先度 */
+  priority  = 4;          /* システムログタスクの優先度 */
   stackSize = LogTaskStackSize;  /* システムログタスクのスタックサイズ */
 
   /* シリアルインタフェースドライバとの結合 */
-  cSerialPort        = SerialPortUART_F.eSerialPort;
-  cnSerialPortManage = SerialPortUART_F.enSerialPortManage;
+  cSerialPort        = SerialPortUSB1.eSerialPort;
+  cnSerialPortManage = SerialPortUSB1.enSerialPortManage;
 
   /* システムログ機能との結合 */
   cSysLog = SysLog.eSysLog;

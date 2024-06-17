@@ -51,11 +51,11 @@ main_task(intptr_t exinf)
     //hub_speaker_play_tone(1800, 1000);
     hub_speaker_play_tone(1800, SOUND_MANUAL_STOP);
     pup_motor_set_power(r_motor, 80);
-    dly_tsk(500000);
+    dly_tsk(1*1000*1000);
     pup_motor_set_power(r_motor, 0);
-    dly_tsk(500000);
+    dly_tsk(1*1000*1000);
     hub_speaker_stop();
-    dly_tsk(1000000);
+    dly_tsk(1*1000*1000);
   }
 
   //pbsys_user_program_unprepare();
