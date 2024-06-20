@@ -8,14 +8,13 @@
 ## 動作確認済みの環境
 - ホストPC環境
     - WSL2またはUbuntu22.04
-- [spike-rt](https://github.com/spike-rt/spike-rt/tree/d8336a72bb697a38bfbe912bb278371de83a8148)バージョン
-    - コミットID：d8336a72bb697a38bfbe912bb278371de83a8148
+- [spike-rt v0.2.0](https://github.com/spike-rt/spike-rt/tree/v0.2.0)
 
 ## アプリケーションの使用方法
 
 ### spike-rtのインストール，及びカーネルライブラリ等の作成
 ```
-git clone https://github.com/spike-rt/spike-rt.git
+git clone -b v0.2.0 https://github.com/spike-rt/spike-rt.git
 cd spike-rt
 git submodule update --init ./external/ 
 ./scripts/build-test.sh
