@@ -10,6 +10,7 @@
 - ```hub_battery_get_current()```
 - ```hub_battery_get_voltage()```
 ### bluetooth1.c
+シリアルインターフェスドライバを使用したサンプル．<br>
 bluetooth経由で文字列の送受信を行う．</br>
 コンソールは[Pybricks](https://pybricks.com/)のコンソールを使用する．</br>
 Hubの電源投入後にPybricksのBluetoothボタンをクリックし，接続する．</br>

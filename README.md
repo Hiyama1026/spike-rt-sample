@@ -91,9 +91,11 @@ make deploy-lin     # Ubuntu上で実行する場合
     ```
 ### Bluetoothを使用する場合
 - Pybricksのコンソールを使用する
+    - Chromeを使用すること
     - Pybricks：https://pybricks.com/
 - Bluetooth接続をするHubの電源を入れる
-    - Bluetooth接続サンプル：[API-sample/bluetooth1](./API-sample/bluetooth1/)
+    - syslogをBluetooth経由で出力するサンプル：[API-sample/syslog_bluetooth](./API-sample/README.md/#syslog_bluetoothc)
+    - シリアルインターフェスドライバを使用したサンプル：[API-sample/bluetooth1](./API-sample/bluetooth1/)
 - Start coding with Blocks & Pyhtonからコンソールを開く
 - コンソール左上のBluetoothボタンからデバイスを選択する
     - 「不明またはサポートされていないデバイス」と表示される場合があるが，選択して接続する
