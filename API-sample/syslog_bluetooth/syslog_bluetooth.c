@@ -6,7 +6,7 @@
 
 #include <t_syslog.h>
 #include "kernel_cfg.h"
-#include "button1.h"
+#include "syslog_bluetooth.h"
 #include "spike/pup/motor.h"
 #include "spike/hub/button.h"
 #include "spike/hub/display.h"

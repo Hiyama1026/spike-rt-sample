@@ -1,6 +1,8 @@
 # API_sample
 ## 概要
-APIの挙動を確認するために作成したサンプル．<br>注意：(*)が付いたサンプルはサンプルはログの出力が必要．
+- APIの挙動を確認するために作成したサンプル
+    - (*)が付いたサンプルはサンプルはログの出力あり
+- [syslog_bluetooth](./syslog_bluetooth/)以外のsyslogはHub上部のUSB経由
 
 ## 各サンプルの概要と使用する主なAPI
 ### battery1.c　(*)
@@ -15,7 +17,7 @@ Hubの電源投入後にPybricksのBluetoothボタンをクリックし，接続
 - ```serial_opn_por()```
 - ```serial_rea_dat()```
 - ```serial_wri_dat()```
-### button1.c
+### button1.c　(*)
 押したボタンをディスプレイに表示する．
 - ```hub_button_is_pressed()```
 ### color1.c　(*)
@@ -95,6 +97,14 @@ hub_display_char()で文字を出力する．
 - ```pup_color_sensor_light_off()```
 ### motor4.c
 フォースセンサが押された力に応じてモータを駆動する．
+
+### speaker1.c
+Hub内蔵スピーカを使用する．<br>
+引数に``SOUND_MANUAL_STOP``を使用しているため，スピーカ駆動中にモータ操作が可能．<br>
+``SOUND_MANUAL_STOP``の代わりに数値を入れることで，駆動時間を指定する事も可能．<br>
+- ```hub_speaker_play_tone()```
+- ```hub_speaker_stop()```
+
 ### ultrasonic1.c　(*)
 超音波センサが物体を検知したら、物体までの距離に応じて超音波センサの各ライトを点灯する．物体までの距離(mm)を表示する．
 - ```pup_ultrasonic_sensor_get_device()```
@@ -138,3 +148,29 @@ busy_wait()にはシステム時刻（get_tim()で取得）を使用．</br>
 左ボタンor右ボタンを押したときに，データキューにデータを送信する．</br>
 データ受信側は受信データに応じてモータ出力を行う</br>
 - ```CRE_DTQ()```
+
+### syslog_bluetooth.c　(*)
+``syslog()``をBluetooth経由で出力するサンプル．<br>
+プログラムの内容は[button1.c](#button1c)と同じ．<br>
+Chromeで[Pybricks](https://code.pybricks.com/)(Web IDE)を立ち上げて使用する．<br>
+syslogをBluetooth経由で出力するには，cdlファイルに以下の変更を行う．<br>
+- syslog_bluetooth.cdl
+    ```
+    <変更前>
+    /* シリアルインタフェースドライバとの結合 */
+    cSerialPort        = SerialPortUSB1.eSerialPort;
+    cnSerialPortManage = SerialPortUSB1.enSerialPortManage;
+    <変更後>
+    cSerialPort        = SerialPortBluetooth1.eSerialPort;
+    cnSerialPortManage = SerialPortBluetooth1.enSerialPortManage;
+    ```
+
+## プロジェクト作成用スクリプト
+- スクリプト名：[create.sh](./create.sh)
+- 使用方法
+    ```
+    cd spike-rt-sample/API-sample
+    ./create.sh [PROJECT-NAME]
+    ```
+    - プロジェクト名に使用できる文字は，アルファベット(大・小)，数字，``-``，``_``とする
+    - プロジェクト名の先頭と終端はアルファベットまたは数字にする
