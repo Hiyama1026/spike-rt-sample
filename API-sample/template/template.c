@@ -14,7 +14,7 @@
 void
 main_task(intptr_t exinf)
 {
-  int scroll_time = 60;
+  int scroll_time = 100;
   syslog(LOG_NOTICE, "This is a project template.");
   
   hub_display_orientation(PBIO_SIDE_TOP);
