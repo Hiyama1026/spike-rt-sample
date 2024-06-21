@@ -19,11 +19,11 @@ fi
 
 
 mkdir $1
-cp -r led1/objs $1
-cp led1/Makefile $1
-cp led1/led1.c $1/$1.c
-cp led1/led1.cdl $1/$1.cdl
-cp led1/led1.cfg $1/$1.cfg
-cp led1/led1.h $1/$1.h
-grep -lr "led1" ./$1/ | xargs sed -i".bak" -e "s/led1/$1/g"
+cp -r template/objs $1
+cp template/Makefile $1
+cp template/template.c $1/$1.c
+cp template/template.cdl $1/$1.cdl
+cp template/template.cfg $1/$1.cfg
+cp template/template.h $1/$1.h
+grep -lr "template" ./$1/ | xargs sed -i".bak" -e "s/template/$1/g"
 rm -rf $1/*bak

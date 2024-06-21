@@ -5,6 +5,12 @@
 - [syslog_bluetooth](./syslog_bluetooth/)以外のsyslogはHub上部のUSB経由
 
 ## 各サンプルの概要と使用する主なAPI
+
+### template
+新規プロジェクト作成用のテンプレート．<br>
+使用方法は下記の[プロジェクト作成用スクリプト](#プロジェクト作成用スクリプト)を参照．<br>
+このフォルダ自体は編集しないことを推奨．<br>
+
 ### battery1.c　(*)
 バッテリーの電流・電圧を取得して表示する．
 - ```hub_battery_get_current()```
@@ -167,11 +173,11 @@ syslogをBluetooth経由で出力するには，cdlファイルに以下の変�
     ```
 
 ## プロジェクト作成用スクリプト
-- スクリプト名：[create.sh](./create.sh)
+- スクリプト名：create.sh
 - 使用方法
     ```
     cd spike-rt-sample/API-sample
-    ./create.sh [PROJECT-NAME]
+    ./create.sh [NEW-PROJECT-NAME]
     ```
     - プロジェクト名に使用できる文字は，アルファベット(大・小)，数字，``-``，``_``とする
     - プロジェクト名の先頭と終端はアルファベットまたは数字にする

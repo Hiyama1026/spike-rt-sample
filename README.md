@@ -10,7 +10,18 @@
     - WSL2またはUbuntu22.04
 - [spike-rt v0.2.0](https://github.com/spike-rt/spike-rt/tree/v0.2.0)
 
-## アプリケーションの使用方法
+## spike-rt及び本プログラムの使用方法
+- Wikiやspike-rt環境構築方法の紹介動画を参照
+    - spike-rt-sample Wiki：https://github.com/Hiyama1026/spike-rt-sample/wiki
+        - spike-rtの環境構築から本プログラムの実行までの手順
+    - spike-rt環境構築方法の紹介動画：ToDo
+
+
+## API 
+- spike-rt API
+    - [APIドキュメント](https://spike-rt.github.io/spike-rt/ja/html/modules.html)を参照。
+
+## 付録1：略式環境構築手順
 
 ### spike-rtのインストール，及びカーネルライブラリ等の作成
 ```
@@ -69,7 +80,7 @@ make deploy-lin     # Ubuntu上で実行する場合
 - Bluetoothボタンが虹色に光るようになるまでボタンを押し続ける
 
 
-## シリアル通信について
+## 付録2：略式シリアル通信方法
 - 有線のシリアル通信はHub上部のUSBポートから行う
     - SPIKE-Prime付属のUSBケーブル等でPCと接続する
 ### Windows上でログを出す場合
@@ -98,7 +109,3 @@ make deploy-lin     # Ubuntu上で実行する場合
 - Start coding with Blocks & Pyhtonからコンソールを開く
 - コンソール左上のBluetoothボタンからデバイスを選択する
     - 「不明またはサポートされていないデバイス」と表示される場合があるが，選択して接続する
-
-## API 
-- spike-rt API
-    - [APIドキュメント](https://spike-rt.github.io/spike-rt/ja/html/modules.html)を参照。
