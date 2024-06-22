@@ -14,7 +14,7 @@
 - Wikiやspike-rt環境構築方法の紹介動画を参照
     - spike-rt-sample Wiki：https://github.com/Hiyama1026/spike-rt-sample/wiki
         - spike-rtの環境構築から本プログラムの実行までの手順
-    - spike-rt環境構築方法の紹介動画：ToDo
+    - spike-rt環境構築方法の紹介動画：https://www.youtube.com/watch?v=XJ7rltuf3Jc
 
 ## 各フォルダの紹介
 - [API-sample](./API-sample/)
