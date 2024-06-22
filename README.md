@@ -16,6 +16,21 @@
         - spike-rtの環境構築から本プログラムの実行までの手順
     - spike-rt環境構築方法の紹介動画：ToDo
 
+## 各フォルダの紹介
+- [API-sample](./API-sample/)
+    - spike-rtのAPIの使い方を紹介
+    - 新しくプログラムを作りたい場合は``API-sample/README.md``の「[プロジェクト作成用スクリプト](./API-sample/README.md/#プロジェクト作成用スクリプト)」を参照
+- [ET-Lobo](./ET-Lobo/)
+    - spike-rtを使用したETロボコン走行体制御用アプリケーションのサンプル
+    - PID制御ライントレースなど
+    - 詳しくは[ET-Lobo/README.md](./ET-Lobo/README.md)
+- [pybricks](./pybricks/)
+    - ネット上に公開されていたSPIKE向けのPythonプログラムをspike-rtで実現したもの
+    - 詳しくは[pybricks/README.md](./pybricks/README.md)
+- [raspike_spikert](./raspike_spikert/)
+    - RasPike向けエージェントプログラム
+    - RasPikeのエージェントプログラムをspike-rtで実現したもの
+    - 詳しくは[raspike_spikert/README.md](./raspike_spikert/README.md)
 
 ## API 
 - spike-rt API
