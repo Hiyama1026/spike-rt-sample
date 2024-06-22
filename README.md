@@ -1,7 +1,7 @@
 # Spike-rt sample
 
 ## 概要
-- spike-rtの各種サンプル，及びRasPike互換モジュール（[raspike_spikert](./raspike_spikert/)）
+- spike-rtの各種サンプル，及びRasPike向けエージェントプログラム（[raspike_spikert](./raspike_spikert/)）
     - spike-rt：https://github.com/spike-rt/spike-rt
 
 

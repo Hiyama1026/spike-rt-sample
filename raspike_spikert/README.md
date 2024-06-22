@@ -1,55 +1,68 @@
-# RasPike互換モジュール
+# spike-rt版エージェントプログラム
 
-- このプロジェクトはRasPikeで使用されるLEGO SPIKEで実行するエージェントプログラムをSPIKE-RTに移植したものである．
+## 概要
+- このプロジェクトはRasPikeで使用されるLEGO SPIKEで実行するエージェントプログラムをSPIKE-RTで実現したものである
+- RasPikeの環境構築手順における．SPIKE環境構築の「[PCからSPIKE用プログラムの転送](https://github.com/ETrobocon/RasPike/wiki/spike_setup#pc%E3%81%8B%E3%82%89spike%E7%94%A8%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E8%BB%A2%E9%80%81)」で書き込むプログラムをspike-rtのCプログラムに置き換える
+- このプログラムを使用することにより，レスポンスの向上を行う事が可能
 
 ## オリジナルのエージェントプログラム
-
-https://github.com/ETrobocon/RasPike/blob/master/spike/raspike_etrobo.py
-
-
-# ビルド及び実行
-
-## アプリケーションのビルド
-
-```
-$ cd <spike-rtのフォルダ>
-$ cd spike-rt-sample/raspike_spikert
-$ make
-```
-
-## 使用方法
-- 本プログラムの実行ファイルをdfuモードでHUBに書き込む．
-- raspberry側で制御アプリケーションを実行する．
+- https://github.com/ETrobocon/RasPike/blob/master/spike/raspike_etrobo.py
 
 
+# 使用方法
+- 下記のRasPike開発環境の手順に従い，「全体の流れ」の``2. Raspberry Pi側の環境を構築します。（Raspberry Pi環境構築）``まで実施
+	- [https://github.com/ETrobocon/RasPike/wiki/RasPike_install](https://github.com/ETrobocon/RasPike/wiki/RasPike_install)
 
-## ハブへのセンサー・モータの接続
+- RasPike開発環境の手順の「全体の流れ」の[3. SPIKE側の環境を構築します。（SPIKE環境構築）](https://github.com/ETrobocon/RasPike/wiki/spike_setup)**の代わりに以下を実施**
+	- spike-rt版エージェントプログラムをビルド
+	```
+	$ cd spike-rt-sample/raspike_spikert
+	$ make
+	```
+	- HubをDFUモードにする
+    	- DFUモード参考：https://www.youtube.com/watch?v=XJ7rltuf3Jc
+	- Hubにプログラムを書き込む
+    ```
+    make deploy-win     # WSL2の場合
+    make deploy-lin     # Ubuntu(ネイティブ)の場合
+    ```
+- RasPike開発環境の手順の「全体の流れ」の``4. Raspberry Piと、SPIKEを接続させます。（Raspberry PiとSPIKEの接続）``を実施
+	- **ただし，以下の変更を行う**
+	- FポートとDポートはオリジナルのRasPikeの接続から入れ替える．
+		- Raspberry PiとSPIKEの接続
+			```
+			アームモータ   : A
+			右モータ       : B
+			左モータ       : E
+			カラーセンサー : C
+			超音波センサー : F -> D		# 変更
+			serial通信     : D -> F		# 変更
+			```
+- 以降はRasPike開発環境の手順の「全体の流れ」に従う
 
-FポートとDポートはオリジナルのRasPikeの接続から入れ替える．
 
-- Raspberry PiとSPIKEの接続
-	- アームモータ   : A
-	- 右モータ       : B
-	- 左モータ       : E
-	- カラーセンサー : C
-	- 超音波センサー : F -> D
-	- serial通信     : D -> F
+# 実行
+
+- オリジナルのRasPikeと同様に起動するとserialを使用してRaspberry Piと通信を開始する
+- コンソール出力は，USB経由の仮想COMポートに出力される（[Tera Term等で見る](https://github.com/Hiyama1026/spike-rt-sample/wiki)事ができる）
 
 
-## 不具合の回避
-以下の変更を行い，実行中にHUBの電源が落ちないように設定する．
-- [spike-rt/external/libpybricks/lib/pbio/platform/prime_hub_spike-rt/pbsysconfig.h](https://github.com/spike-rt/pybricks-micropython/blob/31d98c66dde2d935c30d2ae68c0c81c9de8831ca/lib/pbio/platform/prime_hub_spike-rt/pbsysconfig.h)の`PBSYS_CONFIG_BLUETOOTH_ADVERTISE_WHILE_USER_PROGRAM_RUNNING`を0に変更する．
-```
-#define PBSYS_CONFIG_BLUETOOTH_ADVERTISE_WHILE_USER_PROGRAM_RUNNING (0)
-```
+# 参考1：spike-rt版エージェントプログラムの性能
+- 応答時間の計測を実施
+	- カラーセンサが黒を検知したらモータを停止するプログラムを実行
+	- 実際にカラーセンサが黒を検知してから，モータが停止するまでの時間を計測
+		- 計測回数は1000回
+	- エージェントプログラム本プログラム(spike-rt)を使用したもの「RasPike-RT」と呼ぶ
 
-## 実行
+<br>
 
-オリジナルと同様に起動するとserialを使用してRaspberry Piと通信を開始する．
-コンソール出力は，USB経由の仮想COMポートに出力される．
+- 結果：平均値・最悪値共にRasPike-RTの方が優れた結果に
+	| --- | 応答時間の最悪値(最大値) | 応答時間の平均値 |
+	|:--:|:--:|:--:|
+	|**RasPike**|61.9 ms|34.7 ms|
+	|**RasPike-RT**|53.7 ms|27.3 ms|
 
-
-# 処理内容
+# 参考2：処理内容
 
 ## 受信処理 : Raspberry Pi -> SPIKE 
 
@@ -68,7 +81,7 @@ FポートとDポートはオリジナルのRasPikeの接続から入れ替え�
 	- 送信タスク
 	- オリジナル関数 sync def notifySensorValues():
 
-# 設計メモ
+# 参考3：設計メモ
 
 - 送信するカラーコードはEV3のカラーコードに合わせた．
 	- BROWNは H=40, S=100, V=35 で指定した．
@@ -79,7 +92,7 @@ FポートとDポートはオリジナルのRasPikeの接続から入れ替え�
 - フロー制御を有効にしていると，raspberryから17や19のデータを受信したときに不具合を起こすことが確認されたため，フロー制御を無効化している(725行目)．
 - モーターのPWM値を指定するAPIが公式に追加されていないため，```pup_motor_set_duty_limit()```によりPWM値を指定している．
 
-# 検証を通して分かったこと
+# 参考4：検証を通して分かったこと
 
 - RasPike環境を用いたときとSpike-RTを使用したときで，カラーセンサーが返すReflect値が異なる．
 	- どちらも機能的にはReflect値を出力しているような振る舞いをする．
@@ -118,3 +131,11 @@ FポートとDポートはオリジナルのRasPikeの接続から入れ替え�
 |12|16|15|
 |13|15|14|
 |光源OFFのとき|2|2|
+
+## 不具合の回避(spike-rt v0.2.0では改善済み)
+- **spike-rt v0.2.0では改善されている為，実施する必要はない**
+- 以下の変更を行い，実行中にHUBの電源が落ちないように設定する．
+	- [spike-rt/external/libpybricks/lib/pbio/platform/prime_hub_spike-rt/pbsysconfig.h](https://github.com/spike-rt/pybricks-micropython/blob/31d98c66dde2d935c30d2ae68c0c81c9de8831ca/lib/pbio/platform/prime_hub_spike-rt/pbsysconfig.h)の`PBSYS_CONFIG_BLUETOOTH_ADVERTISE_WHILE_USER_PROGRAM_RUNNING`を0に変更する．
+	```
+	#define PBSYS_CONFIG_BLUETOOTH_ADVERTISE_WHILE_USER_PROGRAM_RUNNING (0)
+	```
