@@ -37,6 +37,8 @@ Hubの電源投入後にPybricksのBluetoothボタンをクリックし，接続
 ### color2.c
 カラーセンサーの各ライトを指定した輝度で点灯する．
 - ```pup_color_sensor_light_set()```
+- ```pup_color_sensor_light_on()```
+- ```pup_color_sensor_light_off()```
 ### color3.c　(*)
 カラーセンサーで反射光の輝度を測定し、ディスプレイとログに出力する．
 - ```pup_color_sensor_reflection()```
