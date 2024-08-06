@@ -32,7 +32,7 @@ ctrl_task(intptr_t exinf)   //10ms周期
   
   x_angle += hub_velocity[2] * 0.01;
   
-  syslog(LOG_NOTICE, "x angular velocity : %d", (int)x_angle);
+  syslog(LOG_NOTICE, "x angular : %d", (int)x_angle);
 
 }
 
