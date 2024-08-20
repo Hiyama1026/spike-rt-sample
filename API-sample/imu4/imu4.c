@@ -29,7 +29,7 @@ ctrl_task(intptr_t exinf)   //10ms周期
 
   #if IGNORE_NOISE
   // Hub停止時の角速度の値が-1となる（個体差？）ため，角速度0から-1の範囲を0とする
-  if (hub_velocity[2] < 0.5 && hub_velocity[2] > -0.5){
+  if (hub_velocity[2] < 1 && hub_velocity[2] > -1){
     return;
   }
   #endif
