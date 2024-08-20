@@ -8,6 +8,10 @@
 ## オリジナルのエージェントプログラム
 - https://github.com/ETrobocon/RasPike/blob/master/spike/raspike_etrobo.py
 
+## 前提
+- spike-rtの環境構築が完了していること
+	- [Wiki](https://github.com/Hiyama1026/spike-rt-sample/wiki)などを参照
+
 
 # 使用方法
 - 下記のRasPike開発環境の手順に従い，「全体の流れ」の``2. Raspberry Pi側の環境を構築します。（Raspberry Pi環境構築）``まで実施
@@ -16,7 +20,7 @@
 - RasPike開発環境の手順の「全体の流れ」の[3. SPIKE側の環境を構築します。（SPIKE環境構築）](https://github.com/ETrobocon/RasPike/wiki/spike_setup)**の代わりに以下を実施**
 	- spike-rt版エージェントプログラムをビルド
 	```
-	$ cd spike-rt-sample/raspike_spikert
+	$ cd ~/spike-rt/spike-rt-sample/raspike_spikert
 	$ make
 	```
 	- HubをDFUモードにする

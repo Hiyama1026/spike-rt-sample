@@ -11,6 +11,8 @@
 float x_angle = 0;
 hub_button_t pressed_ptn, pre_ptn;
 
+#define IGNORE_NOISE 1
+
 void
 ctrl_task(intptr_t exinf)   //10ms周期
 {
@@ -25,10 +27,12 @@ ctrl_task(intptr_t exinf)   //10ms周期
   }
   pre_ptn = pressed_ptn;
 
+  #if IGNORE_NOISE
   // Hub停止時の角速度の値が-1となる（個体差？）ため，角速度0から-1の範囲を0とする
-  if (hub_velocity[2] <= 0 && (int)hub_velocity[2] >= -1){
+  if (hub_velocity[2] < 0.5 && hub_velocity[2] > -0.5){
     return;
   }
+  #endif
   
   x_angle += hub_velocity[2] * 0.01;
   
