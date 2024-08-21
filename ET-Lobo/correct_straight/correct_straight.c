@@ -44,6 +44,7 @@ int motor_speed_limit(int ori_val)
   else return ori_val;
 }
 
+void
 ctrl_task(intptr_t exinf)   //1ms周期, 高優先度
 {
   current_r_cnt = pup_motor_get_count(r_motor);
